@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Slide 02 - Nỗi đau thị trường</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="slide-common.css" rel="stylesheet">
+<style>
+.problem-card {
+  border-left: 4px solid var(--rose);
+  position: relative;
+}
+
+.problem-card:hover {
+  border-left-color: #FB7185;
+}
+
+.problem-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--rose);
+  background: var(--rose-dark);
+  padding: 3px 8px;
+  border-radius: 6px;
+  margin-bottom: 12px;
+}
+
+.impact-box {
+  margin-top: 18px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: rgba(244, 63, 94, 0.08);
+  border: 1px dashed rgba(244, 63, 94, 0.25);
+  font-size: 13.5px;
+  color: #FDA4AF;
+}
+
+.impact-box b {
+  color: #fff;
+}
+
+.bottom-banner {
+  margin-top: 32px;
+  padding: 18px 24px;
+  border-radius: 14px;
+  background: linear-gradient(90deg, rgba(245, 166, 35, 0.12) 0%, rgba(15, 23, 42, 0.8) 100%);
+  border: 1px solid rgba(245, 166, 35, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 15.5px;
+  color: #F8FAFC;
+}
+
+.banner-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--amber-dark);
+  border: 1px solid var(--amber);
+  display: grid;
+  place-items: center;
+  color: var(--amber);
+  font-weight: 800;
+  flex-shrink: 0;
+}
+</style>
+</head>
+<body>
+
+<div class="slide-container">
+  <div class="glow-spot top-right"></div>
+
+  <div class="slide-header">
+    <div class="slide-tag amber fade-up">02 / 10 • THỰC TRẠNG & NỖI ĐAU</div>
+    <h2 class="slide-title fade-up delay-1">Khủng Hoảng Chi Phí & Rủi Ro Trong Bóc Tách Dự Toán</h2>
+    <p class="slide-subtitle fade-up delay-2">Ngành xây dựng đang lãng phí hàng nghìn tỷ đồng mỗi năm vì phương pháp thủ công và các công cụ đo bóc lạc hậu.</p>
+  </div>
+
+  <div class="grid-3">
+    <!-- Problem 1 -->
+    <div class="card problem-card fade-up delay-2">
+      <div class="problem-badge">VẤN ĐỀ 01</div>
+      <h3 class="card-title">Tốn Thời Gian & Nhân Lực Kỷ Lục</h3>
+      <p class="card-desc">
+        Một công trình có từ <b>50 - 300 bản vẽ CAD</b>. Kỹ sư dự toán (QS) phải mất hàng tuần đếm từng bộ cửa, đo từng mét dầm, cộng từng thanh thép thủ công trên từng layer rời rạc.
+      </p>
+      <div class="impact-box">
+        ⚠ <b>Tác động:</b> Chi phí nhân sự QS chiếm tới <b>3 - 5%</b> tổng chi phí quản lý dự án, gây tắc nghẽn hồ sơ dự thầu.
+      </div>
+    </div>
+
+    <!-- Problem 2 -->
+    <div class="card problem-card fade-up delay-3">
+      <div class="problem-badge">VẤN ĐỀ 02</div>
+      <h3 class="card-title">Rủi Ro Sai Số Gây Thất Thoát Tiền Tỷ</h3>
+      <p class="card-desc">
+        Áp lực chạy deadline dẫn tới sót cấu kiện, nhầm tiết diện hoặc cộng trùng khối lượng. Sai một con số kích thước có thể làm lệch dự toán hàng trăm triệu đến hàng tỷ đồng.
+      </p>
+      <div class="impact-box">
+        ⚠ <b>Tác động:</b> Sai sót khối lượng là nguyên nhân số 1 dẫn tới <b>tranh chấp thầu, phạt tiến độ</b> và lỗ dự án.
+      </div>
+    </div>
+
+    <!-- Problem 3 -->
+    <div class="card problem-card fade-up delay-4">
+      <div class="problem-badge">VẤN ĐỀ 03</div>
+      <h3 class="card-title">AI Thông Thường "Bị Liệt" Trong CAD</h3>
+      <p class="card-desc">
+        Các mô hình LLM phổ biến (ChatGPT, Claude cơ bản) chỉ giỏi văn bản thông thường. Chúng <b>hoàn toàn mù với nhị phân .DWG</b>, không đọc được font tiếng Việt TCVN3/VNI và hay bịa số liệu.
+      </p>
+      <div class="impact-box">
+        ⚠ <b>Tác động:</b> Ảo giác (Hallucination) số liệu là rào cản chết người trong kỹ thuật xây dựng.
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Banner Summary -->
+  <div class="bottom-banner fade-up delay-5">
+    <div class="banner-icon">!</div>
+    <div>
+      <b>Thực trạng đáng báo động:</b> Hơn <b>85%</b> các nhà thầu và đơn vị tư vấn thiết kế tại Việt Nam vẫn đang phải đo bóc bằng thước điện tử hoặc kích chuột đo tay từng nét trong AutoCAD kết hợp gõ chay vào Excel!
+    </div>
+  </div>
+</div>
+
+<script>
+window.addEventListener('click', () => {
+  window.parent.postMessage({ action: 'next' }, '*');
+});
+</script>
+</body>
+</html>

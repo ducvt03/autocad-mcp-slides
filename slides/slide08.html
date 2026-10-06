@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Slide 08 - Thế mạnh cạnh tranh</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="slide-common.css" rel="stylesheet">
+<style>
+.matrix-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 16px;
+  overflow: hidden;
+  background: rgba(15, 23, 42, 0.7);
+  border: 1px solid var(--border);
+}
+
+.matrix-table th {
+  padding: 16px 20px;
+  text-align: left;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--ink-secondary);
+  background: rgba(255, 255, 255, 0.03);
+  border-bottom: 1px solid var(--border);
+}
+
+.matrix-table th.mcp-col {
+  color: var(--cyan);
+  background: rgba(0, 240, 255, 0.08);
+  border-bottom: 1px solid rgba(0, 240, 255, 0.3);
+}
+
+.matrix-table td {
+  padding: 14px 20px;
+  font-size: 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  color: var(--muted);
+}
+
+.matrix-table tr:last-child td {
+  border-bottom: none;
+}
+
+.matrix-table td.feature-name {
+  font-weight: 600;
+  color: #fff;
+}
+
+.matrix-table td.mcp-col {
+  background: rgba(0, 240, 255, 0.04);
+  color: #fff;
+  font-weight: 600;
+  border-left: 1px solid rgba(0, 240, 255, 0.15);
+  border-right: 1px solid rgba(0, 240, 255, 0.15);
+}
+
+.tag-bad {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: #F87171;
+  font-size: 13px;
+}
+
+.tag-good {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--emerald);
+  font-weight: 700;
+  font-size: 13.5px;
+}
+
+.tag-warn {
+  color: var(--amber);
+  font-size: 13px;
+}
+</style>
+</head>
+<body>
+
+<div class="slide-container">
+  <div class="glow-spot top-right"></div>
+  <div class="glow-spot bottom-left"></div>
+
+  <div class="slide-header">
+    <div class="slide-tag fade-up">08 / 10 • THẾ MẠNH CẠNH TRANH</div>
+    <h2 class="slide-title fade-up delay-1">Vị Thế Vượt Trội Của AutoCAD MCP</h2>
+    <p class="slide-subtitle fade-up delay-2">So sánh ma trận năng lực giữa phương pháp truyền thống, AutoLisp cũ, ChatGPT trần và AutoCAD MCP.</p>
+  </div>
+
+  <table class="matrix-table fade-up delay-3">
+    <thead>
+      <tr>
+        <th style="width: 22%;">TIÊU CHÍ SO SÁNH</th>
+        <th style="width: 26%;">ĐO BÓC THỦ CÔNG (EXCEL)</th>
+        <th style="width: 26%;">CHATGPT / CLAUDE TRẦN</th>
+        <th class="mcp-col" style="width: 26%;">AUTOCAD MCP COPILOT</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="feature-name">Tốc độ xử lý</td>
+        <td><span class="tag-bad">✕ Vài ngày đến nhiều tuần</span></td>
+        <td><span class="tag-warn">⚠ Vài phút (nhưng không đọc file)</span></td>
+        <td class="mcp-col"><span class="tag-good">✔ Vài giây (Tự động 100%)</span></td>
+      </tr>
+      <tr>
+        <td class="feature-name">Nguy cơ bịa số (Hallucination)</td>
+        <td><span class="tag-bad">✕ Rủi ro sót & nhầm do con người</span></td>
+        <td><span class="tag-bad">✕ Bịa số nặng, sai kích thước</span></td>
+        <td class="mcp-col"><span class="tag-good">✔ 0% Ảo giác (Grounding Guard)</span></td>
+      </tr>
+      <tr>
+        <td class="feature-name">Phụ thuộc bản quyền CAD</td>
+        <td><span class="tag-bad">✕ Cần bản quyền AutoCAD đắt đỏ</span></td>
+        <td><span>Không hỗ trợ file .dwg nhị phân</span></td>
+        <td class="mcp-col"><span class="tag-good">✔ 100% Cloud (Zero CAD License)</span></td>
+      </tr>
+      <tr>
+        <td class="feature-name">Truy vết nguồn gốc số liệu</td>
+        <td><span class="tag-bad">✕ Không thể truy vết tức thì</span></td>
+        <td><span class="tag-bad">✕ Hoàn toàn không có nguồn</span></td>
+        <td class="mcp-col"><span class="tag-good">✔ Đính kèm Handle [HEX] đối tượng</span></td>
+      </tr>
+      <tr>
+        <td class="feature-name">Trực quan hóa đối soát</td>
+        <td><span class="tag-warn">Khoanh tay thủ công bằng bút đỏ</span></td>
+        <td><span class="tag-bad">✕ Không có hình ảnh</span></td>
+        <td class="mcp-col"><span class="tag-good">✔ Tự động KHOANH ĐỎ ảnh PNG</span></td>
+      </tr>
+      <tr>
+        <td class="feature-name">Định dạng xuất dữ liệu</td>
+        <td><span class="tag-warn">Gõ lại thủ công vào bảng tính</span></td>
+        <td>Văn bản rời rạc, bảng Markdown</td>
+        <td class="mcp-col"><span class="tag-good">✔ Xuất BOQ Excel chuẩn G8 / F1</span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<script>
+window.addEventListener('click', () => {
+  window.parent.postMessage({ action: 'next' }, '*');
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Slide 09 - Lộ trình tăng trưởng</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="slide-common.css" rel="stylesheet">
+<style>
+.roadmap-timeline {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  position: relative;
+}
+
+.roadmap-card {
+  padding: 30px 26px;
+  border-radius: 18px;
+  background: rgba(15, 23, 42, 0.75);
+  border: 1px solid var(--border);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.phase-tag {
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: var(--cyan);
+  margin-bottom: 6px;
+}
+
+.phase-time {
+  font-size: 13.5px;
+  color: var(--amber);
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.roadmap-card h3 {
+  font-size: 21px;
+  font-weight: 800;
+  margin-bottom: 16px;
+  color: #fff;
+}
+
+.phase-goals {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-size: 14px;
+  color: var(--muted);
+  flex-grow: 1;
+}
+
+.phase-goals li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  line-height: 1.5;
+}
+
+.phase-goals li span {
+  color: var(--cyan);
+  font-weight: 700;
+}
+
+.target-kpi {
+  margin-top: 24px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: rgba(0, 240, 255, 0.06);
+  border: 1px dashed rgba(0, 240, 255, 0.25);
+  font-size: 13.5px;
+  color: #E2E8F0;
+}
+
+.target-kpi b {
+  color: var(--cyan);
+}
+</style>
+</head>
+<body>
+
+<div class="slide-container">
+  <div class="glow-spot top-right"></div>
+
+  <div class="slide-header">
+    <div class="slide-tag fade-up">09 / 10 • CHIẾN LƯỢC TĂNG TRƯỞNG</div>
+    <h2 class="slide-title fade-up delay-1">Lộ Trình Xâm Nhập Thị Trường & Mở Rộng 3 Giai Đoạn</h2>
+    <p class="slide-subtitle fade-up delay-2">Chiến lược đi từ Product-Led Growth (PLG) cộng đồng đến hợp tác tích hợp sâu hệ sinh thái phần mềm dự toán.</p>
+  </div>
+
+  <div class="roadmap-timeline">
+    <!-- Phase 1 -->
+    <div class="card roadmap-card fade-up delay-2" style="border-top: 4px solid var(--cyan);">
+      <div class="phase-tag">GIAI ĐOẠN 1</div>
+      <div class="phase-time">Tháng 1 - Tháng 6</div>
+      <h3>PLG & Cộng Đồng QS</h3>
+      <ul class="phase-goals">
+        <li><span>•</span> Phát hành phiên bản Freemium cho kỹ sư dự toán (QS) trải nghiệm trực tiếp trên Web.</li>
+        <li><span>•</span> Tiếp cận các diễn đàn kỹ sư xây dựng, hội nhóm QS lớn tại Việt Nam thông qua tài liệu & demo thực tế.</li>
+        <li><span>•</span> Tối ưu vòng lặp phản hồi người dùng về độ chuẩn xác bảng biểu.</li>
+      </ul>
+      <div class="target-kpi">
+        🎯 <b>Mục tiêu:</b> 2.000 người dùng tích cực & 50 công ty tư vấn thiết kế dùng thử.
+      </div>
+    </div>
+
+    <!-- Phase 2 -->
+    <div class="card roadmap-card fade-up delay-3" style="border-top: 4px solid var(--amber);">
+      <div class="phase-tag" style="color:var(--amber);">GIAI ĐOẠN 2</div>
+      <div class="phase-time">Tháng 7 - Tháng 12</div>
+      <h3>Hợp Tác Đối Tác Hệ Sinh Thái</h3>
+      <ul class="phase-goals">
+        <li><span>•</span> Hợp tác tích hợp trực tiếp với các phần mềm dự toán phổ biến nhất (G8, F1, Dự toán GXD).</li>
+        <li><span>•</span> Xuất dữ liệu 1-click trực tiếp sang file định dạng phần mềm dự toán.</li>
+        <li><span>•</span> Đẩy mạnh bán hàng gói doanh nghiệp cho các nhà thầu thi công.</li>
+      </ul>
+      <div class="target-kpi">
+        🎯 <b>Mục tiêu:</b> 150 khách hàng B2B trả phí & Doanh thu định kỳ <b>$25.000 / tháng</b>.
+      </div>
+    </div>
+
+    <!-- Phase 3 -->
+    <div class="card roadmap-card fade-up delay-4" style="border-top: 4px solid var(--emerald);">
+      <div class="phase-tag" style="color:var(--emerald);">GIAI ĐOẠN 3</div>
+      <div class="phase-time">Năm 2 Trở Đi</div>
+      <h3>Tổng Thầu & Mở Rộng Khu Vực</h3>
+      <ul class="phase-goals">
+        <li><span>•</span> Ký hợp đồng khung Enterprise với các tổng thầu lớn (Coteccons, Ricons, Newtecons, VinGroup...).</li>
+        <li><span>•</span> Tích hợp API vào hệ thống ERP / BIM quản lý dự án nội bộ của các tập đoàn.</li>
+        <li><span>•</span> Mở rộng sang các thị trường Đông Nam Á (Thái Lan, Indonesia, Philippines).</li>
+      </ul>
+      <div class="target-kpi">
+        🎯 <b>Mục tiêu:</b> Chiếm lĩnh vị trí dẫn đầu giải pháp AI Takeoff tại khu vực ASEAN.
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+window.addEventListener('click', () => {
+  window.parent.postMessage({ action: 'next' }, '*');
+});
+</script>
+</body>
+</html>

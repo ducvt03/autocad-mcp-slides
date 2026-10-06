@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Slide 07 - Mô hình kinh doanh</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="slide-common.css" rel="stylesheet">
+<style>
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.pricing-card {
+  padding: 30px 26px;
+  border-radius: 18px;
+  background: rgba(15, 23, 42, 0.75);
+  border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.pricing-card.featured {
+  border-color: var(--cyan);
+  background: rgba(15, 23, 42, 0.95);
+  box-shadow: 0 15px 40px rgba(0, 240, 255, 0.15);
+  transform: scale(1.02);
+}
+
+.popular-badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, var(--cyan), #38BDF8);
+  color: #030712;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 3px 12px;
+  border-radius: 999px;
+  letter-spacing: 1px;
+}
+
+.plan-type {
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: var(--cyan);
+  margin-bottom: 6px;
+}
+
+.plan-target {
+  font-size: 14px;
+  color: var(--ink-secondary);
+  margin-bottom: 18px;
+}
+
+.plan-price {
+  font-family: var(--mono);
+  font-size: 26px;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 6px;
+}
+
+.plan-subprice {
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 24px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--border);
+}
+
+.plan-features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-size: 13.5px;
+  color: var(--muted);
+  flex-grow: 1;
+}
+
+.plan-features li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  line-height: 1.4;
+}
+
+.plan-features li span {
+  color: var(--emerald);
+  font-weight: 800;
+}
+</style>
+</head>
+<body>
+
+<div class="slide-container">
+  <div class="glow-spot top-right"></div>
+
+  <div class="slide-header">
+    <div class="slide-tag fade-up">07 / 10 • MÔ HÌNH KINH DOANH</div>
+    <h2 class="slide-title fade-up delay-1">Đa Dạng Hóa Nguồn Thu Với Khả Năng Scale Linh Hoạt</h2>
+    <p class="slide-subtitle fade-up delay-2">Kết hợp mô hình thuê bao hàng tháng (SaaS) và tính phí theo khối lượng dự án phục vụ từng phân khúc khách hàng.</p>
+  </div>
+
+  <div class="pricing-grid">
+    <!-- Tier 1 -->
+    <div class="card pricing-card fade-up delay-2">
+      <div class="plan-type">B2B SAAS SEAT</div>
+      <h3 class="card-title" style="margin-bottom:4px;">Gói Tiêu Chuẩn</h3>
+      <div class="plan-target">Dành cho văn phòng tư vấn thiết kế nhỏ (3 - 10 người)</div>
+      <div class="plan-price">500k - 1.5M <span style="font-size:15px;color:var(--muted);">VNĐ/tháng</span></div>
+      <div class="plan-subprice">Tính trên mỗi kỹ sư (Seat-based)</div>
+
+      <ul class="plan-features">
+        <li><span>✔</span> Truy cập đầy đủ giao diện Web UI</li>
+        <li><span>✔</span> Giới hạn 100 bản vẽ / tháng / tài khoản</li>
+        <li><span>✔</span> Tự động xuất file Excel 2-sheet chuẩn G8/F1</li>
+        <li><span>✔</span> Hỗ trợ font TCVN3 / VNI tự động</li>
+      </ul>
+    </div>
+
+    <!-- Tier 2 -->
+    <div class="card pricing-card featured fade-up delay-3">
+      <div class="popular-badge">PHỔ BIẾN NHẤT</div>
+      <div class="plan-type" style="color:var(--amber);">PAY-PER-PROJECT</div>
+      <h3 class="card-title" style="margin-bottom:4px;">Gói Theo Dự Án</h3>
+      <div class="plan-target">Dành cho nhà thầu thi công & đội ngũ đấu thầu gấp</div>
+      <div class="plan-price" style="color:var(--amber);">20k - 50k <span style="font-size:15px;color:var(--muted);">VNĐ/bản vẽ</span></div>
+      <div class="plan-subprice">Hoặc gói trọn gói theo hồ sơ mời thầu</div>
+
+      <ul class="plan-features">
+        <li><span>✔</span> Tốc độ bóc tách siêu tốc trong 24 giờ</li>
+        <li><span>✔</span> Không giới hạn số lượng kỹ sư truy cập dự án</li>
+        <li><span>✔</span> Đầy đủ ảnh minh chứng khoanh đỏ đối soát</li>
+        <li><span>✔</span> Báo cáo tổng hợp BOQ khối lượng hoàn chỉnh</li>
+      </ul>
+    </div>
+
+    <!-- Tier 3 -->
+    <div class="card pricing-card fade-up delay-4">
+      <div class="plan-type">ENTERPRISE & API</div>
+      <h3 class="card-title" style="margin-bottom:4px;">Doanh Nghiệp Lớn</h3>
+      <div class="plan-target">Dành cho tổng thầu quy mô lớn & chủ đầu tư</div>
+      <div class="plan-price">100M - 300M <span style="font-size:15px;color:var(--muted);">VNĐ/năm</span></div>
+      <div class="plan-subprice">Hợp đồng Enterprise kèm SLA cam kết</div>
+
+      <ul class="plan-features">
+        <li><span>✔</span> Cung cấp MCP API hoặc Private Container On-Premise</li>
+        <li><span>✔</span> Tích hợp trực tiếp vào hệ thống ERP / CDE của doanh nghiệp</li>
+        <li><span>✔</span> Tùy biến công thức và chuẩn hóa mẫu biểu BOQ nội bộ</li>
+        <li><span>✔</span> Đội ngũ kỹ sư hỗ trợ kỹ thuật chuyên biệt 24/7</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<script>
+window.addEventListener('click', () => {
+  window.parent.postMessage({ action: 'next' }, '*');
+});
+</script>
+</body>
+</html>

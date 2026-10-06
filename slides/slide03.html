@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Slide 03 - Giải pháp đột phá</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="slide-common.css" rel="stylesheet">
+<style>
+.sol-card {
+  border-top: 3px solid var(--cyan);
+  background: rgba(15, 23, 42, 0.75);
+}
+
+.sol-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: var(--cyan-dark);
+  border: 1px solid rgba(0, 240, 255, 0.3);
+  display: grid;
+  place-items: center;
+  color: var(--cyan);
+  margin-bottom: 16px;
+}
+
+.sol-icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.feature-check {
+  display: inline-block;
+  color: var(--emerald);
+  font-weight: 800;
+  margin-right: 6px;
+}
+
+.badge-tag {
+  font-family: var(--mono);
+  font-size: 11px;
+  padding: 2px 7px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--cyan);
+  margin-left: 6px;
+}
+</style>
+</head>
+<body>
+
+<div class="slide-container">
+  <div class="glow-spot bottom-left"></div>
+
+  <div class="slide-header">
+    <div class="slide-tag fade-up">03 / 10 • GIẢI PHÁP ĐỘT PHÁ</div>
+    <h2 class="slide-title fade-up delay-1">AutoCAD MCP: Nền Tảng AI Tiên Lượng Khối Lượng Đầu Tiên</h2>
+    <p class="slide-subtitle fade-up delay-2">Kết hợp sức mạnh trí tuệ nhân tạo (LLM Agent) với Engine hình học tất định, loại bỏ 100% rủi ro bịa số.</p>
+  </div>
+
+  <div class="grid-4">
+    <!-- Sol 1 -->
+    <div class="card sol-card fade-up delay-1">
+      <div class="sol-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+      </div>
+      <h3 class="card-title">Bóc Tách Tự Động Vài Giây</h3>
+      <p class="card-desc">
+        Chỉ cần tải lên file <b>.dwg hoặc .dxf</b>. Hệ thống tự động bóc tách toàn bộ bê tông, cốt thép, ván khuôn, xây trát và hạ tầng mà không cần cài đặt phần mềm CAD nặng nề.
+      </p>
+    </div>
+
+    <!-- Sol 2 -->
+    <div class="card sol-card fade-up delay-2">
+      <div class="sol-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <h3 class="card-title">Chính Xác Tất Định 100%</h3>
+      <p class="card-desc">
+        Triệt tiêu hoàn toàn ảo giác. AI chỉ làm nhiệm vụ <b>điều phối câu hỏi</b>; toàn bộ phép tính toán học và hình học đều do engine Python thực thi chính xác tuyệt đối.
+      </p>
+    </div>
+
+    <!-- Sol 3 -->
+    <div class="card sol-card fade-up delay-3">
+      <div class="sol-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/></svg>
+      </div>
+      <h3 class="card-title">Minh Chứng & Khoanh Đỏ</h3>
+      <p class="card-desc">
+        Mọi con số đều đính kèm mã định danh đối tượng <span class="badge-tag">Handle [HEX]</span> và tự động <b>KHOANH ĐỎ cấu kiện</b> trên ảnh bản vẽ PNG để kỹ sư dễ dàng kiểm chứng đối soát.
+      </p>
+    </div>
+
+    <!-- Sol 4 -->
+    <div class="card sol-card fade-up delay-4">
+      <div class="sol-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+      </div>
+      <h3 class="card-title">Xuất BOQ Chuẩn G8, F1</h3>
+      <p class="card-desc">
+        Tự động xuất tệp <b>Excel 2 Sheet</b> (Bảng tổng hợp & Bảng tiên lượng chi tiết) theo đúng quy chuẩn định mức, sẵn sàng copy-paste trực tiếp vào các phần mềm dự toán phổ biến.
+      </p>
+    </div>
+  </div>
+</div>
+
+<script>
+window.addEventListener('click', () => {
+  window.parent.postMessage({ action: 'next' }, '*');
+});
+</script>
+</body>
+</html>

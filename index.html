@@ -1,0 +1,417 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>AutoCAD MCP - AI Bóc Tách Dự Toán Bản Vẽ Tự Động</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  color-scheme: dark;
+  --bg: #070B19;
+  --bg-card: rgba(15, 23, 42, 0.75);
+  --ink: #F8FAFC;
+  --muted: rgba(226, 232, 240, 0.72);
+  --cyan: #00F0FF;
+  --cyan-glow: rgba(0, 240, 255, 0.35);
+  --amber: #F5A623;
+  --amber-glow: rgba(245, 166, 35, 0.4);
+  --emerald: #10B981;
+  --border: rgba(255, 255, 255, 0.12);
+  --border-active: rgba(0, 240, 255, 0.45);
+  --font: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+  --mono: "JetBrains Mono", monospace;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; width: 100%; overflow: hidden; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font);
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Background Cyber Grid */
+.bg-grid {
+  position: fixed;
+  inset: 0;
+  background-image: 
+    radial-gradient(circle at 50% 10%, rgba(0, 240, 255, 0.08) 0%, transparent 60%),
+    radial-gradient(circle at 85% 85%, rgba(245, 166, 35, 0.06) 0%, transparent 50%),
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 48px 48px, 48px 48px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Deck Container */
+.deck {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+}
+
+.deck iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: transparent;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: scale(0.985);
+}
+
+.deck iframe.show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: scale(1);
+}
+
+/* Top Branding Bar */
+.brand-bar {
+  position: fixed;
+  top: 18px;
+  left: 24px;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: rgba(10, 16, 34, 0.65);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+}
+
+.brand-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--cyan);
+  box-shadow: 0 0 10px var(--cyan);
+  animation: pulse 2s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 0.9; }
+  50% { transform: scale(1.35); opacity: 0.4; }
+}
+
+.brand-title {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.brand-badge {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 7px;
+  border-radius: 6px;
+  background: rgba(0, 240, 255, 0.12);
+  color: var(--cyan);
+  border: 1px solid rgba(0, 240, 255, 0.3);
+}
+
+/* Bottom Progress Bar */
+.progress-bar-container {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.06);
+  z-index: 20;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 10%;
+  background: linear-gradient(90deg, var(--cyan), var(--amber));
+  box-shadow: 0 0 12px var(--cyan-glow);
+  transition: width 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Floating HUD Controls */
+.hud {
+  position: fixed;
+  right: 24px;
+  bottom: calc(18px + env(safe-area-inset-bottom, 0px));
+  z-index: 25;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(10, 16, 36, 0.75);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.hud:hover {
+  border-color: var(--border-active);
+}
+
+.hud button {
+  width: 38px;
+  height: 38px;
+  border: 0;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.hud button:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--cyan);
+  transform: scale(1.08);
+}
+
+.hud button:active {
+  transform: scale(0.94);
+}
+
+.hud svg {
+  width: 18px;
+  height: 18px;
+}
+
+.hud .pos {
+  min-width: 65px;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--muted);
+  font-family: var(--mono);
+  letter-spacing: 0.5px;
+}
+
+/* Keyboard / Usage Hint */
+.hint {
+  position: fixed;
+  left: 50%;
+  bottom: calc(22px + env(safe-area-inset-bottom, 0px));
+  z-index: 20;
+  transform: translateX(-50%);
+  padding: 8px 18px;
+  border-radius: 999px;
+  background: rgba(10, 16, 36, 0.7);
+  border: 1px solid var(--border);
+  font-size: 12.5px;
+  color: var(--muted);
+  backdrop-filter: blur(12px);
+  transition: opacity 0.6s ease;
+  pointer-events: none;
+}
+
+.hint b {
+  color: #fff;
+  padding: 1px 6px;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 4px;
+  margin: 0 2px;
+}
+
+.hint.gone {
+  opacity: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .hint { display: none; }
+  .brand-bar { left: 14px; top: 14px; padding: 6px 12px; }
+  .hud { right: 14px; bottom: 14px; padding: 4px 8px; }
+  .hud button { width: 34px; height: 34px; }
+  .hud svg { width: 16px; height: 16px; }
+}
+</style>
+</head>
+<body>
+
+<div class="bg-grid"></div>
+
+<!-- Top Branding -->
+<div class="brand-bar">
+  <div class="brand-dot"></div>
+  <span class="brand-title">AutoCAD MCP</span>
+  <span class="brand-badge">PITCH DECK</span>
+</div>
+
+<!-- Slides Deck -->
+<div class="deck" id="deck"></div>
+
+<!-- Bottom Progress Bar -->
+<div class="progress-bar-container">
+  <div class="progress-bar" id="progressBar"></div>
+</div>
+
+<!-- Navigation Controls -->
+<div class="hud" id="hud">
+  <button id="prevBtn" type="button" title="Slide trước (←)">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 19l-7-7 7-7"/></svg>
+  </button>
+  <span class="pos" id="pos">1 / 10</span>
+  <button id="nextBtn" type="button" title="Slide sau (→ / Space)">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>
+  </button>
+  <button id="fsBtn" type="button" title="Toàn màn hình (F)">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>
+  </button>
+</div>
+
+<div class="hint" id="hint">
+  Phím <b>→</b> hoặc <b>Space</b> chuyển tiếp · <b>←</b> lùi · <b>F</b> toàn màn hình · <b>Click</b> vào slide
+</div>
+
+<script>
+const SLIDES = [
+  'slides/slide01.html',
+  'slides/slide02.html',
+  'slides/slide03.html',
+  'slides/slide04.html',
+  'slides/slide05.html',
+  'slides/slide06.html',
+  'slides/slide07.html',
+  'slides/slide08.html',
+  'slides/slide09.html',
+  'slides/slide10.html'
+];
+
+const deck = document.getElementById('deck');
+const pos = document.getElementById('pos');
+const progressBar = document.getElementById('progressBar');
+const hint = document.getElementById('hint');
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
+const fsBtn = document.getElementById('fsBtn');
+
+let currentIdx = -1;
+let zIndexCounter = 1;
+
+// Khởi tạo các iframes cho từng slide
+const frames = SLIDES.map((src, idx) => {
+  const iframe = document.createElement('iframe');
+  iframe.src = src;
+  iframe.title = `Slide ${idx + 1}`;
+  iframe.hidden = true;
+  iframe.setAttribute('allow', 'autoplay; fullscreen');
+  deck.appendChild(iframe);
+  return iframe;
+});
+
+function goToSlide(n) {
+  n = Math.max(0, Math.min(SLIDES.length - 1, n));
+  if (n === currentIdx) return;
+
+  const prevFrame = frames[currentIdx];
+  const nextFrame = frames[n];
+
+  currentIdx = n;
+  nextFrame.hidden = false;
+  nextFrame.classList.remove('show');
+  nextFrame.style.zIndex = ++zIndexCounter;
+
+  // Trigger reflow
+  void nextFrame.offsetWidth;
+  nextFrame.classList.add('show');
+
+  // Báo tin nhắn qua iframe để kích hoạt animation nếu có
+  try {
+    nextFrame.contentWindow.postMessage({ action: 'play' }, '*');
+  } catch(e) {}
+
+  if (prevFrame) {
+    setTimeout(() => {
+      if (frames[currentIdx] !== prevFrame) {
+        prevFrame.classList.remove('show');
+        prevFrame.hidden = true;
+      }
+    }, 700);
+  }
+
+  // Cập nhật HUD & Progress bar
+  pos.textContent = `${n + 1} / ${SLIDES.length}`;
+  progressBar.style.width = `${((n + 1) / SLIDES.length) * 100}%`;
+
+  // Cập nhật Hash URL
+  try {
+    history.replaceState(null, '', '#' + (n + 1));
+  } catch(e) {}
+}
+
+function nextSlide() { goToSlide(currentIdx + 1); }
+function prevSlide() { goToSlide(currentIdx - 1); }
+
+function toggleFullScreen() {
+  if (!document.fullscreenElement) {
+    document.documentElement.requestFullscreen().catch(() => {});
+  } else {
+    document.exitFullscreen().catch(() => {});
+  }
+}
+
+// Bắt phím điều hướng
+window.addEventListener('keydown', (e) => {
+  if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+    e.preventDefault();
+    nextSlide();
+  } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+    e.preventDefault();
+    prevSlide();
+  } else if (e.key === 'f' || e.key === 'F') {
+    e.preventDefault();
+    toggleFullScreen();
+  } else if (e.key === 'Home') {
+    e.preventDefault();
+    goToSlide(0);
+  } else if (e.key === 'End') {
+    e.preventDefault();
+    goToSlide(SLIDES.length - 1);
+  }
+});
+
+// Nhận thông điệp từ slide iframe
+window.addEventListener('message', (e) => {
+  if (!e.data) return;
+  if (e.data.action === 'next') nextSlide();
+  if (e.data.action === 'prev') prevSlide();
+});
+
+prevBtn.addEventListener('click', prevSlide);
+nextBtn.addEventListener('click', nextSlide);
+fsBtn.addEventListener('click', toggleFullScreen);
+
+// Tự động ẩn gợi ý sau 6 giây
+setTimeout(() => {
+  hint.classList.add('gone');
+}, 6000);
+
+// Nạp slide theo hash ban đầu
+let initSlide = 0;
+const hash = parseInt(window.location.hash.replace('#', ''), 10);
+if (!isNaN(hash) && hash >= 1 && hash <= SLIDES.length) {
+  initSlide = hash - 1;
+}
+goToSlide(initSlide);
+</script>
+
+</body>
+</html>

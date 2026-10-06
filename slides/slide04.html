@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Slide 04 - Công nghệ & Hàng rào Moat</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="slide-common.css" rel="stylesheet">
+<style>
+.moat-card {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  padding: 24px;
+  background: rgba(15, 23, 42, 0.7);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  transition: all 0.3s ease;
+}
+
+.moat-card:hover {
+  border-color: var(--cyan);
+  background: rgba(15, 23, 42, 0.9);
+  transform: translateY(-2px);
+}
+
+.moat-num {
+  font-family: var(--mono);
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--cyan);
+  line-height: 1;
+  background: var(--cyan-dark);
+  border: 1px solid rgba(0, 240, 255, 0.3);
+  padding: 12px 14px;
+  border-radius: 12px;
+}
+
+.moat-title {
+  font-size: 19px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 8px;
+}
+
+.moat-desc {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.highlight-text {
+  color: var(--amber);
+  font-weight: 600;
+}
+</style>
+</head>
+<body>
+
+<div class="slide-container">
+  <div class="glow-spot top-right"></div>
+  <div class="glow-spot bottom-left"></div>
+
+  <div class="slide-header">
+    <div class="slide-tag fade-up">04 / 10 • CÔNG NGHỆ & LỢI THẾ CẠNH TRANH</div>
+    <h2 class="slide-title fade-up delay-1">4 Lớp Hàng Rào Công Nghệ (Moat) Khó Sao Chép</h2>
+    <p class="slide-subtitle fade-up delay-2">Xây dựng trên nền tảng kỹ thuật chuyên sâu xử lý dị biệt bản vẽ CAD kỹ thuật tại thị trường Việt Nam.</p>
+  </div>
+
+  <div class="grid-2">
+    <!-- Moat 1 -->
+    <div class="moat-card fade-up delay-1">
+      <div class="moat-num">01</div>
+      <div>
+        <h3 class="moat-title">Grounding Guard Độc Quyền</h3>
+        <p class="moat-desc">
+          Kiểm soát <b>100% số đo lường</b> trước khi xuất ra. Bịt kín 6 kênh rò rỉ số ảo. Bất kỳ con số nào không đối soát được với dữ liệu CAD gốc sẽ bị tiêu hủy ngay tại cửa ra output.
+        </p>
+      </div>
+    </div>
+
+    <!-- Moat 2 -->
+    <div class="moat-card fade-up delay-2">
+      <div class="moat-num">02</div>
+      <div>
+        <h3 class="moat-title">Giải Mã Font Tiếng Việt Toàn Diện</h3>
+        <p class="moat-desc">
+          Bộ giải mã <code style="color:var(--cyan);font-family:var(--mono);">vntext.py</code> xử lý triệt để bảng mã <b>TCVN3 (ABC), font VNI</b> và ký hiệu đường kính phi <span class="highlight-text">%%C</span> đặc thù. Đã kiểm chứng cứu thành công <b>108.000+ chuỗi text</b> mà các mô hình thông thường đều bó tay.
+        </p>
+      </div>
+    </div>
+
+    <!-- Moat 3 -->
+    <div class="moat-card fade-up delay-3">
+      <div class="moat-num">03</div>
+      <div>
+        <h3 class="moat-title">Đọc Nhị Phân Bảng Excel OLE (Zero-OCR)</h3>
+        <p class="moat-desc">
+          Công nghệ parse nhị phân trực tiếp từ blob <code style="color:var(--cyan);font-family:var(--mono);">OLE2Frame</code> nhúng trong file DWG. Đọc chính xác <b>89% các bảng thống kê thép</b> dán từ Excel vào CAD mà không cần qua OCR hình ảnh chậm chạp và dễ sai sót.
+        </p>
+      </div>
+    </div>
+
+    <!-- Moat 4 -->
+    <div class="moat-card fade-up delay-4">
+      <div class="moat-num">04</div>
+      <div>
+        <h3 class="moat-title">Bảng Kẻ Khung & Chứng Minh Decimal</h3>
+        <p class="moat-desc">
+          Thuật toán tự động nhận diện lưới kẻ bằng nét LINE tự do, chứng minh bằng đẳng thức số học Decimal nguyên <code style="color:var(--amber);font-family:var(--mono);">cd[i+1] - cd[i] == le[i]</code>, triệt tiêu sai số làm tròn trong các trắc dọc cống, đường hạ tầng kỹ thuật.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+window.addEventListener('click', () => {
+  window.parent.postMessage({ action: 'next' }, '*');
+});
+</script>
+</body>
+</html>
