@@ -68,14 +68,15 @@ body.has-photo .bg .scene { opacity: 0; }
 h1, h2 { font-weight: 800; line-height: 1.04; letter-spacing: -1px; }
 h1 { font-size: 132px; text-transform: uppercase; }
 h2 { font-size: 72px; line-height: 1.12; }
-.hl { background: linear-gradient(100deg, #C98E2E 0%, #F6D88E 45%, #E8B54A 70%, #B9822A 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.hl { background: linear-gradient(100deg, #C98E2E 0%, #F6D88E 45%, #E8B54A 70%, #B9822A 100%); -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent; padding-block: .3em; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+.mask .line.hl { margin-block: -.3em; }
 .serif { font-family: var(--serif); font-style: italic; font-weight: 400; }
 .lead { font-family: var(--serif); font-style: italic; font-size: 46px; line-height: 1.3; color: var(--ink); }
 .body { font-size: 28px; line-height: 1.5; color: var(--muted); }
 .mono { font-family: var(--mono); }
 .rule { width: 128px; height: 6px; background: #D2482F; border-radius: 2px; }
 
-.mask { display: block; overflow: hidden; padding: .16em 0 .1em; margin: -.16em 0 -.1em; }
+.mask { display: block; overflow: hidden; padding: .3em 0 .25em; margin: -.3em 0 -.25em; }
 .mask .line { display: block; transform: translateY(110%); }
 .run .mask .line { animation: up 1s var(--ease) both; animation-delay: var(--d, 0s); }
 @keyframes up { to { transform: translateY(0); } }
