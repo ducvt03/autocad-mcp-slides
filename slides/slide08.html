@@ -18,15 +18,16 @@
   .market strong { font-size: 40px; font-weight: 800; }
   .market span { font-size: 20px; color: var(--muted); max-width: 300px; }
 
-  .biz { position: absolute; left: 920px; right: 96px; top: 300px; display: flex; flex-direction: column; gap: 22px; z-index: 3; }
-  .biz .card { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 24px; padding: 28px 36px; }
+  .biz { position: absolute; left: 920px; right: 96px; top: 290px; display: flex; flex-direction: column; gap: 16px; z-index: 3; }
+  .biz .card { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 24px; padding: 22px 36px; }
   .biz small { font-family: var(--mono); font-size: 18px; color: var(--gold); letter-spacing: 2px; }
   .biz h3 { font-size: 34px; font-weight: 800; margin: 4px 0; }
   .biz p { font-size: 22px; color: var(--muted); }
   .biz .price { font-size: 34px; font-weight: 800; color: var(--gold-2); white-space: nowrap; }
   .biz .card.main { background: linear-gradient(110deg, rgba(232,181,74,.24), rgba(11,22,48,.85) 60%); }
   .who { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 8px; }
-  .who span { font-size: 22px; padding: 8px 18px; border: 1.5px solid var(--line); border-radius: 999px; }
+  .src { position: absolute; left: 96px; right: 96px; top: 962px; font-size: 18px; white-space: nowrap; z-index: 3; }
+  .who span { font-size: 20px; padding: 8px 18px; border: 1.5px solid var(--line); border-radius: 999px; }
 </style>
 </head>
 <body data-image="assets/s08.webp,assets/s08.jpg,assets/s08.png">
@@ -40,17 +41,19 @@
   </section>
 
   <div class="market">
-    <div class="c tam anim zoom" style="--d:.6s"><b>TAM</b><strong>[__ tỷ đồng]</strong><span>Chi cho dự toán, bóc khối lượng tại Việt Nam mỗi năm</span></div>
-    <div class="c sam anim zoom" style="--d:.8s"><b>SAM</b><strong>[__ tỷ đồng]</strong><span>Đơn vị dùng bản vẽ AutoCAD</span></div>
-    <div class="c som anim zoom" style="--d:1s"><b>SOM</b><strong>[__ tỷ]</strong><span>Mục tiêu 3 năm</span></div>
+    <div class="c tam anim zoom" style="--d:.6s"><b>TAM</b><strong>867 tỷ đ/năm</strong><span>104.732 DN xây dựng × 1 người dự toán × gói SaaS</span></div>
+    <div class="c sam anim zoom" style="--d:.8s"><b>SAM</b><strong>260 tỷ đ/năm</strong><span>30% DN tự lập dự toán từ bản vẽ CAD</span></div>
+    <div class="c som anim zoom" style="--d:1s"><b>SOM</b><strong>5,2 tỷ</strong><span>628 DN sau 3 năm (2% SAM)</span></div>
   </div>
 
   <div class="biz">
-    <div class="card anim" style="--d:1.1s"><div><small>THEO LƯỢT</small><h3>Trả theo bản vẽ</h3><p>Kỹ sư tự do, văn phòng nhỏ</p></div><div class="price">[__ đ/file]</div></div>
-    <div class="card glow main anim" style="--d:1.25s"><div><small>GÓI CHÍNH</small><h3>Thuê bao SaaS</h3><p>Phòng dự toán nhà thầu, tư vấn thiết kế</p></div><div class="price">[__ đ/tháng]</div></div>
-    <div class="card anim" style="--d:1.4s"><div><small>DOANH NGHIỆP</small><h3>Cài đặt nội bộ</h3><p>Giữ bản vẽ trong máy chủ riêng</p></div><div class="price">[__ đ/năm]</div></div>
-    <div class="who anim" style="--d:1.6s"><span>Phòng dự toán nhà thầu</span><span>Tư vấn thiết kế</span><span>Thẩm tra · QLDA</span><span>Chủ đầu tư</span></div>
+    <div class="card anim" style="--d:1.1s"><div><small>THEO LƯỢT</small><h3>Trả theo bản vẽ</h3><p>Kỹ sư tự do, văn phòng nhỏ</p></div><div class="price">150.000 đ/file</div></div>
+    <div class="card glow main anim" style="--d:1.25s"><div><small>GÓI CHÍNH</small><h3>Thuê bao SaaS</h3><p>Mỗi người dùng, thanh toán theo tháng</p></div><div class="price">690.000 đ/tháng</div></div>
+    <div class="card anim" style="--d:1.4s"><div><small>DOANH NGHIỆP</small><h3>Cài đặt nội bộ</h3><p>Đến 20 người dùng, bản vẽ ở máy chủ riêng</p></div><div class="price">120 tr đ/năm</div></div>
+    <div class="who anim" style="--d:1.6s"><span>Phần mềm dự toán VN: 0,8–4,5 tr đ/bản quyền</span><span>Togal.AI (Mỹ): $299 ≈ 7,8 tr đ/người/tháng</span></div>
   </div>
+
+  <p class="src note anim" style="--d:1.8s">Nguồn: B&amp;Company 2022 (số DN) · bảng giá Eta, F1, GXD, Acitt · togal.ai · tỷ lệ 30% và 2% là giả định của nhóm</p>
 
   <footer class="foot anim" style="--d:1.8s">AUTOCAD MCP<span class="pg">08</span></footer>
 </div>
