@@ -3,136 +3,86 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Slide 02 - Nỗi đau thị trường</title>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-<link href="slide-common.css" rel="stylesheet">
+<title>02 · Vấn đề</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&family=Noto+Serif:ital,wght@1,400;1,500&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="deck.css" rel="stylesheet">
 <style>
-.problem-card {
-  border-left: 4px solid var(--rose);
-  position: relative;
-}
+  .head { position: absolute; left: 96px; top: 96px; display: flex; flex-direction: column; gap: 22px; z-index: 3; }
+  .cards { position: absolute; left: 96px; right: 96px; top: 330px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 36px; z-index: 3; }
+  .cards .card { display: flex; flex-direction: column; }
+  .cards .frame { height: 310px; background: #0B1222; border-bottom: 1.5px solid var(--line); }
+  .art { position: absolute; inset: 0; }
+  .txt { padding: 30px 34px 36px; display: flex; flex-direction: column; gap: 10px; text-align: center; }
+  .txt h3 { font-size: 38px; font-weight: 800; }
+  .txt .big { font-size: 56px; white-space: nowrap; }
+  .txt p { font-size: 24px; color: var(--muted); line-height: 1.45; }
 
-.problem-card:hover {
-  border-left-color: #FB7185;
-}
+  /* Hình 1: rối mắt vì quá nhiều đối tượng */
+  .a1 .plan { position: absolute; width: 170%; left: -30%; top: -40%; opacity: .9; }
+  .a1 .dense { position: absolute; inset: 0; background:
+      repeating-linear-gradient(35deg, rgba(143,193,234,.16) 0 1px, transparent 1px 9px),
+      repeating-linear-gradient(-55deg, rgba(143,193,234,.12) 0 1px, transparent 1px 13px); }
+  .a1 .lens { position: absolute; right: 60px; top: 50px; width: 190px; height: 190px; border: 6px solid var(--gold); border-radius: 50%; background: rgba(11,22,48,.55); box-shadow: 0 0 30px rgba(232,181,74,.45); display: grid; place-items: center; font-family: var(--mono); font-size: 22px; color: var(--gold-2); }
+  .a1 .lens::after { content: ""; position: absolute; width: 90px; height: 16px; background: var(--gold); right: -78px; bottom: -22px; transform: rotate(45deg); border-radius: 8px; }
 
-.problem-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-family: var(--mono);
-  font-size: 11px;
-  font-weight: 700;
-  color: var(--rose);
-  background: var(--rose-dark);
-  padding: 3px 8px;
-  border-radius: 6px;
-  margin-bottom: 12px;
-}
+  /* Hình 2: một chữ, hai nghĩa */
+  .a2 { display: grid; place-items: center; background: radial-gradient(circle at 50% 40%, #1A2C55 0%, #0B1222 70%); }
+  .a2 .code { font-family: var(--mono); font-size: 52px; color: #DCE9F7; border: 2px dashed var(--blue); padding: 10px 26px; position: absolute; top: 44px; }
+  .a2 .opt { position: absolute; bottom: 40px; font-size: 24px; font-weight: 700; padding: 10px 20px; border-radius: 10px; }
+  .a2 .o1 { left: 40px; background: rgba(232,181,74,.16); color: var(--gold-2); border: 2px solid var(--gold); }
+  .a2 .o2 { right: 40px; background: rgba(255,77,79,.14); color: #FF9C9D; border: 2px solid var(--red); }
+  .a2 svg { position: absolute; inset: 0; width: 100%; height: 100%; }
 
-.impact-box {
-  margin-top: 18px;
-  padding: 12px 14px;
-  border-radius: 10px;
-  background: rgba(244, 63, 94, 0.08);
-  border: 1px dashed rgba(244, 63, 94, 0.25);
-  font-size: 13.5px;
-  color: #FDA4AF;
-}
-
-.impact-box b {
-  color: #fff;
-}
-
-.bottom-banner {
-  margin-top: 32px;
-  padding: 18px 24px;
-  border-radius: 14px;
-  background: linear-gradient(90deg, rgba(245, 166, 35, 0.12) 0%, rgba(15, 23, 42, 0.8) 100%);
-  border: 1px solid rgba(245, 166, 35, 0.3);
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  font-size: 15.5px;
-  color: #F8FAFC;
-}
-
-.banner-icon {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: var(--amber-dark);
-  border: 1px solid var(--amber);
-  display: grid;
-  place-items: center;
-  color: var(--amber);
-  font-weight: 800;
-  flex-shrink: 0;
-}
+  /* Hình 3: AI đoán bừa */
+  .a3 { background: radial-gradient(circle at 50% 30%, #2A1830 0%, #0B1222 70%); display: grid; place-items: center; }
+  .a3 .bubble { width: 82%; padding: 22px 24px; border-radius: 16px; background: #17233F; border: 1px solid #263659; font-size: 22px; line-height: 1.5; color: #DCE4F2; position: relative; }
+  .a3 .bubble b { color: #FF9C9D; text-decoration: line-through; text-decoration-thickness: 3px; text-shadow: 3px 0 rgba(0,240,255,.5), -3px 0 rgba(255,77,79,.6); }
+  .a3 .bot { font-family: var(--mono); font-size: 16px; color: var(--muted); margin-bottom: 6px; }
+  .a3 .warn { position: absolute; right: -16px; top: -26px; width: 64px; height: 64px; border-radius: 50%; background: var(--red); display: grid; place-items: center; font-weight: 900; font-size: 38px; color: #fff; box-shadow: 0 0 24px rgba(255,77,79,.7); }
+  .run .a3 .bubble { animation: glitch 2.6s steps(1) infinite 1.5s; }
+  @keyframes glitch { 0%,92%,100% { transform: none; } 93% { transform: translate(-4px, 2px); } 95% { transform: translate(5px, -2px); } 97% { transform: translate(-2px, 0); } }
 </style>
 </head>
-<body>
+<body data-image="assets/s02.webp,assets/s02.jpg,assets/s02.png">
+<div class="stage" id="stage">
+  <div class="bg"><div class="kb"><img class="scene" src="assets/scene-city.svg" alt=""><img class="photo" alt=""></div></div>
+  <div class="scrim full"></div><div class="vignette"></div><div class="grain"></div>
 
-<div class="slide-container">
-  <div class="glow-spot top-right"></div>
+  <section class="head">
+    <div class="eyebrow anim" style="--d:.2s">Vấn đề</div>
+    <h2><span class="mask"><span class="line" style="--d:.4s">3 nỗi lo khi bóc khối lượng một bộ bản vẽ</span></span></h2>
+  </section>
 
-  <div class="slide-header">
-    <div class="slide-tag amber fade-up">02 / 10 • THỰC TRẠNG & NỖI ĐAU</div>
-    <h2 class="slide-title fade-up delay-1">Khủng Hoảng Chi Phí & Rủi Ro Trong Bóc Tách Dự Toán</h2>
-    <p class="slide-subtitle fade-up delay-2">Ngành xây dựng đang lãng phí hàng nghìn tỷ đồng mỗi năm vì phương pháp thủ công và các công cụ đo bóc lạc hậu.</p>
+  <div class="cards">
+    <article class="card glow anim" style="--d:.8s">
+      <div class="frame" data-photo="assets/p1.webp,assets/p1.jpg,assets/p1.png" data-alt="Kỹ sư dò bản vẽ dày đặc">
+        <div class="art a1"><img class="plan" src="assets/plan.svg" alt=""><div class="dense"></div><div class="lens">?</div></div>
+      </div>
+      <div class="txt"><div class="big"><span class="num" data-v="21077" data-delay="1">0</span></div><h3>Dò tay từng nét</h3><p>đối tượng trong một bản vẽ kết cấu thật — đếm cột, cửa, thép rồi gõ lại vào Excel</p></div>
+    </article>
+
+    <article class="card glow anim" style="--d:1s">
+      <div class="frame" data-photo="assets/p2.webp,assets/p2.jpg,assets/p2.png" data-alt="Ký hiệu trên bản vẽ có hai cách hiểu">
+        <div class="art a2">
+          <svg viewBox="0 0 540 310" preserveAspectRatio="none" class="draw" fill="none"><path d="M270 120 C270 190 120 190 120 250" stroke="#E8B54A" stroke-width="3" stroke-dasharray="8 8" style="--len:400;--d:1.4s"/><path d="M270 120 C270 190 420 190 420 250" stroke="#FF4D4F" stroke-width="3" stroke-dasharray="8 8" style="--len:400;--d:1.6s"/></svg>
+          <div class="code">CH - 2.700</div>
+          <div class="opt o1">Cửa cao 2,7 m?</div><div class="opt o2">Cao độ −2,7 m?</div>
+        </div>
+      </div>
+      <div class="txt"><div class="big">Mỗi nơi 1 kiểu</div><h3>Quy ước layer khác nhau</h3><p>Đọc nhầm một ký hiệu là sai cả hạng mục — lỗi này đã gặp thật trong kiểm thử</p></div>
+    </article>
+
+    <article class="card glow anim" style="--d:1.2s">
+      <div class="frame" data-photo="assets/p3.webp,assets/p3.jpg,assets/p3.png" data-alt="Chatbot AI trả lời sai con số">
+        <div class="art a3"><div class="bubble"><div class="bot">AI tổng quát</div>Chiều dài công trình là <b>58.800 mm</b>.<div class="warn">!</div></div></div>
+      </div>
+      <div class="txt"><div class="big">F1 0,03–0,18</div><h3>AI tổng quát đoán số</h3><p>khi mô hình thị giác tự đọc nội dung bản vẽ. Sai mà vẫn trả lời rất tự tin</p></div>
+    </article>
   </div>
 
-  <div class="grid-3">
-    <!-- Problem 1 -->
-    <div class="card problem-card fade-up delay-2">
-      <div class="problem-badge">VẤN ĐỀ 01</div>
-      <h3 class="card-title">Tốn Thời Gian & Nhân Lực Kỷ Lục</h3>
-      <p class="card-desc">
-        Một công trình có từ <b>50 - 300 bản vẽ CAD</b>. Kỹ sư dự toán (QS) phải mất hàng tuần đếm từng bộ cửa, đo từng mét dầm, cộng từng thanh thép thủ công trên từng layer rời rạc.
-      </p>
-      <div class="impact-box">
-        ⚠ <b>Tác động:</b> Chi phí nhân sự QS chiếm tới <b>3 - 5%</b> tổng chi phí quản lý dự án, gây tắc nghẽn hồ sơ dự thầu.
-      </div>
-    </div>
-
-    <!-- Problem 2 -->
-    <div class="card problem-card fade-up delay-3">
-      <div class="problem-badge">VẤN ĐỀ 02</div>
-      <h3 class="card-title">Rủi Ro Sai Số Gây Thất Thoát Tiền Tỷ</h3>
-      <p class="card-desc">
-        Áp lực chạy deadline dẫn tới sót cấu kiện, nhầm tiết diện hoặc cộng trùng khối lượng. Sai một con số kích thước có thể làm lệch dự toán hàng trăm triệu đến hàng tỷ đồng.
-      </p>
-      <div class="impact-box">
-        ⚠ <b>Tác động:</b> Sai sót khối lượng là nguyên nhân số 1 dẫn tới <b>tranh chấp thầu, phạt tiến độ</b> và lỗ dự án.
-      </div>
-    </div>
-
-    <!-- Problem 3 -->
-    <div class="card problem-card fade-up delay-4">
-      <div class="problem-badge">VẤN ĐỀ 03</div>
-      <h3 class="card-title">AI Thông Thường "Bị Liệt" Trong CAD</h3>
-      <p class="card-desc">
-        Các mô hình LLM phổ biến (ChatGPT, Claude cơ bản) chỉ giỏi văn bản thông thường. Chúng <b>hoàn toàn mù với nhị phân .DWG</b>, không đọc được font tiếng Việt TCVN3/VNI và hay bịa số liệu.
-      </p>
-      <div class="impact-box">
-        ⚠ <b>Tác động:</b> Ảo giác (Hallucination) số liệu là rào cản chết người trong kỹ thuật xây dựng.
-      </div>
-    </div>
-  </div>
-
-  <!-- Bottom Banner Summary -->
-  <div class="bottom-banner fade-up delay-5">
-    <div class="banner-icon">!</div>
-    <div>
-      <b>Thực trạng đáng báo động:</b> Hơn <b>85%</b> các nhà thầu và đơn vị tư vấn thiết kế tại Việt Nam vẫn đang phải đo bóc bằng thước điện tử hoặc kích chuột đo tay từng nét trong AutoCAD kết hợp gõ chay vào Excel!
-    </div>
-  </div>
+  <footer class="foot anim" style="--d:1.6s">AUTOCAD MCP<span class="pg">02</span></footer>
 </div>
-
-<script>
-window.addEventListener('click', () => {
-  window.parent.postMessage({ action: 'next' }, '*');
-});
-</script>
+<script src="deck.js"></script>
 </body>
 </html>

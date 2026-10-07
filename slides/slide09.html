@@ -3,150 +3,53 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Slide 09 - Lộ trình tăng trưởng</title>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-<link href="slide-common.css" rel="stylesheet">
+<title>09 · Lộ trình</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&family=Noto+Serif:ital,wght@1,400;1,500&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="deck.css" rel="stylesheet">
 <style>
-.roadmap-timeline {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
-  position: relative;
-}
-
-.roadmap-card {
-  padding: 30px 26px;
-  border-radius: 18px;
-  background: rgba(15, 23, 42, 0.75);
-  border: 1px solid var(--border);
-  position: relative;
-  display: flex;
-  flex-direction: column;
-}
-
-.phase-tag {
-  font-family: var(--mono);
-  font-size: 12px;
-  font-weight: 800;
-  letter-spacing: 1.5px;
-  color: var(--cyan);
-  margin-bottom: 6px;
-}
-
-.phase-time {
-  font-size: 13.5px;
-  color: var(--amber);
-  font-weight: 600;
-  margin-bottom: 16px;
-}
-
-.roadmap-card h3 {
-  font-size: 21px;
-  font-weight: 800;
-  margin-bottom: 16px;
-  color: #fff;
-}
-
-.phase-goals {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  font-size: 14px;
-  color: var(--muted);
-  flex-grow: 1;
-}
-
-.phase-goals li {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  line-height: 1.5;
-}
-
-.phase-goals li span {
-  color: var(--cyan);
-  font-weight: 700;
-}
-
-.target-kpi {
-  margin-top: 24px;
-  padding: 14px 16px;
-  border-radius: 12px;
-  background: rgba(0, 240, 255, 0.06);
-  border: 1px dashed rgba(0, 240, 255, 0.25);
-  font-size: 13.5px;
-  color: #E2E8F0;
-}
-
-.target-kpi b {
-  color: var(--cyan);
-}
+  .head { position: absolute; left: 96px; top: 96px; display: flex; flex-direction: column; gap: 22px; z-index: 3; }
+  .track { position: absolute; left: 96px; right: 96px; top: 380px; height: 6px; background: rgba(232,181,74,.2); border-radius: 3px; z-index: 3; }
+  .track .fill { position: absolute; left: 0; top: 0; height: 100%; width: 0; background: linear-gradient(90deg, #C98E2E, var(--gold-2)); border-radius: 3px; box-shadow: 0 0 20px rgba(232,181,74,.6); }
+  .run .track .fill { animation: fill 2.2s var(--ease) .8s both; }
+  @keyframes fill { to { width: 62%; } }
+  .nodes { position: absolute; left: 96px; right: 96px; top: 340px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; z-index: 4; }
+  .node { display: flex; flex-direction: column; gap: 22px; }
+  .node .dot { width: 86px; height: 86px; border-radius: 50%; display: grid; place-items: center; font-family: var(--mono); font-size: 26px; font-weight: 600; background: var(--navy); border: 3px solid var(--gold); color: var(--gold); }
+  .node.done .dot { background: var(--gold); color: #1A1406; }
+  .node.now .dot { border-style: dashed; }
+  .node.next .dot { border-color: #5B6F85; color: #8FA3B8; }
+  .node .card { padding: 30px 32px; display: flex; flex-direction: column; gap: 10px; min-height: 380px; }
+  .node .st { font-family: var(--mono); font-size: 20px; letter-spacing: 2px; color: var(--gold); }
+  .node.now .st { color: var(--blue); }
+  .node.next .st { color: #8FA3B8; }
+  .node h3 { font-size: 36px; font-weight: 800; }
+  .node p { font-size: 24px; line-height: 1.5; color: var(--muted); }
+  .node.done .card { border-color: var(--gold); }
+  .when { position: absolute; left: 96px; top: 920px; z-index: 3; }
 </style>
 </head>
-<body>
+<body data-image="assets/s09.webp,assets/s09.jpg,assets/s09.png">
+<div class="stage" id="stage">
+  <div class="bg"><div class="kb"><img class="scene" src="assets/scene-city.svg" alt=""><img class="photo" alt=""></div></div>
+  <div class="scrim full"></div><div class="vignette"></div><div class="grain"></div>
 
-<div class="slide-container">
-  <div class="glow-spot top-right"></div>
+  <section class="head">
+    <div class="eyebrow anim" style="--d:.2s">Lộ trình</div>
+    <h2><span class="mask"><span class="line" style="--d:.4s">Từ đọc bản vẽ đến <span class="hl">dự toán chi phí</span></span></span></h2>
+  </section>
 
-  <div class="slide-header">
-    <div class="slide-tag fade-up">09 / 10 • CHIẾN LƯỢC TĂNG TRƯỞNG</div>
-    <h2 class="slide-title fade-up delay-1">Lộ Trình Xâm Nhập Thị Trường & Mở Rộng 3 Giai Đoạn</h2>
-    <p class="slide-subtitle fade-up delay-2">Chiến lược đi từ Product-Led Growth (PLG) cộng đồng đến hợp tác tích hợp sâu hệ sinh thái phần mềm dự toán.</p>
+  <div class="track"><div class="fill"></div></div>
+  <div class="nodes">
+    <div class="node done anim" style="--d:.7s"><div class="dot">01</div><div class="card"><span class="st">ĐÃ XONG</span><h3>Đọc</h3><p>Số lượng, thép, kích thước, tiết diện, layer, sheet. Khoanh đỏ trên ảnh.</p></div></div>
+    <div class="node done anim" style="--d:.9s"><div class="dot">02</div><div class="card"><span class="st">ĐÃ XONG</span><h3>Tính</h3><p>12 công thức khối lượng, tự nhận đơn vị cm/mm, tổng hợp, xuất Excel.</p></div></div>
+    <div class="node now anim" style="--d:1.1s"><div class="dot">03</div><div class="card glow"><span class="st">ĐANG LÀM</span><h3>Thử thực tế</h3><p>Đọc bảng Excel nhúng, học quy ước layer từng đơn vị, kỹ sư chấm theo hạng mục.</p></div></div>
+    <div class="node next anim" style="--d:1.3s"><div class="dot">04</div><div class="card"><span class="st">TIẾP THEO</span><h3>Dự toán</h3><p>Áp đơn giá, định mức TT12/BXD, tổng hợp kinh phí. Đã có bản thử.</p></div></div>
   </div>
+  <p class="when note anim" style="--d:1.6s">Mốc thời gian: [Qx/2026] → [Qx/2027]</p>
 
-  <div class="roadmap-timeline">
-    <!-- Phase 1 -->
-    <div class="card roadmap-card fade-up delay-2" style="border-top: 4px solid var(--cyan);">
-      <div class="phase-tag">GIAI ĐOẠN 1</div>
-      <div class="phase-time">Tháng 1 - Tháng 6</div>
-      <h3>PLG & Cộng Đồng QS</h3>
-      <ul class="phase-goals">
-        <li><span>•</span> Phát hành phiên bản Freemium cho kỹ sư dự toán (QS) trải nghiệm trực tiếp trên Web.</li>
-        <li><span>•</span> Tiếp cận các diễn đàn kỹ sư xây dựng, hội nhóm QS lớn tại Việt Nam thông qua tài liệu & demo thực tế.</li>
-        <li><span>•</span> Tối ưu vòng lặp phản hồi người dùng về độ chuẩn xác bảng biểu.</li>
-      </ul>
-      <div class="target-kpi">
-        🎯 <b>Mục tiêu:</b> 2.000 người dùng tích cực & 50 công ty tư vấn thiết kế dùng thử.
-      </div>
-    </div>
-
-    <!-- Phase 2 -->
-    <div class="card roadmap-card fade-up delay-3" style="border-top: 4px solid var(--amber);">
-      <div class="phase-tag" style="color:var(--amber);">GIAI ĐOẠN 2</div>
-      <div class="phase-time">Tháng 7 - Tháng 12</div>
-      <h3>Hợp Tác Đối Tác Hệ Sinh Thái</h3>
-      <ul class="phase-goals">
-        <li><span>•</span> Hợp tác tích hợp trực tiếp với các phần mềm dự toán phổ biến nhất (G8, F1, Dự toán GXD).</li>
-        <li><span>•</span> Xuất dữ liệu 1-click trực tiếp sang file định dạng phần mềm dự toán.</li>
-        <li><span>•</span> Đẩy mạnh bán hàng gói doanh nghiệp cho các nhà thầu thi công.</li>
-      </ul>
-      <div class="target-kpi">
-        🎯 <b>Mục tiêu:</b> 150 khách hàng B2B trả phí & Doanh thu định kỳ <b>$25.000 / tháng</b>.
-      </div>
-    </div>
-
-    <!-- Phase 3 -->
-    <div class="card roadmap-card fade-up delay-4" style="border-top: 4px solid var(--emerald);">
-      <div class="phase-tag" style="color:var(--emerald);">GIAI ĐOẠN 3</div>
-      <div class="phase-time">Năm 2 Trở Đi</div>
-      <h3>Tổng Thầu & Mở Rộng Khu Vực</h3>
-      <ul class="phase-goals">
-        <li><span>•</span> Ký hợp đồng khung Enterprise với các tổng thầu lớn (Coteccons, Ricons, Newtecons, VinGroup...).</li>
-        <li><span>•</span> Tích hợp API vào hệ thống ERP / BIM quản lý dự án nội bộ của các tập đoàn.</li>
-        <li><span>•</span> Mở rộng sang các thị trường Đông Nam Á (Thái Lan, Indonesia, Philippines).</li>
-      </ul>
-      <div class="target-kpi">
-        🎯 <b>Mục tiêu:</b> Chiếm lĩnh vị trí dẫn đầu giải pháp AI Takeoff tại khu vực ASEAN.
-      </div>
-    </div>
-  </div>
+  <footer class="foot anim" style="--d:1.8s">AUTOCAD MCP<span class="pg">09</span></footer>
 </div>
-
-<script>
-window.addEventListener('click', () => {
-  window.parent.postMessage({ action: 'next' }, '*');
-});
-</script>
+<script src="deck.js"></script>
 </body>
 </html>

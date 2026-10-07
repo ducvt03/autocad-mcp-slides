@@ -1,0 +1,150 @@
+/* ===== AutoCAD MCP · Pitch deck · phong cách navy + vàng (TDU) ===== */
+:root {
+  --navy: #0B1630;
+  --navy-2: #102044;
+  --navy-3: #16294F;
+  --ink: #F4ECDD;
+  --muted: #A9B6CC;
+  --gold: #E8B54A;
+  --gold-2: #F6D88E;
+  --red: #FF4D4F;
+  --blue: #8FC1EA;
+  --line: rgba(232, 181, 74, .45);
+  --card: rgba(11, 22, 48, .78);
+  --sans: "Be Vietnam Pro", "Segoe UI", Arial, sans-serif;
+  --serif: "Noto Serif", Georgia, serif;
+  --mono: "JetBrains Mono", Consolas, monospace;
+  --ease: cubic-bezier(.16, 1, .3, 1);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 100%; height: 100%; overflow: hidden; background: #060C1C; }
+body { font-family: var(--sans); color: var(--ink); cursor: pointer; -webkit-font-smoothing: antialiased; }
+
+/* Sân khấu cố định 1920×1080, co giãn vừa khung */
+.stage {
+  position: absolute; left: 50%; top: 50%;
+  width: 1920px; height: 1080px;
+  transform: translate(-50%, -50%) scale(var(--s, 1));
+  overflow: hidden; background: var(--navy);
+}
+
+/* ---------- Nền ---------- */
+.bg { position: absolute; inset: 0; overflow: hidden; }
+.bg .scene { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.bg .photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 1.2s ease; }
+body.has-photo .bg .photo { opacity: 1; }
+body.has-photo .bg .scene { opacity: 0; }
+.run .bg .kb { animation: kb 22s ease-out both; }
+.kb { position: absolute; inset: 0; transform-origin: var(--kb-origin, 70% 50%); }
+@keyframes kb { from { transform: scale(1.12); } to { transform: scale(1); } }
+
+.scrim { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(8,15,34,.97) 0%, rgba(8,15,34,.9) 34%, rgba(8,15,34,.45) 62%, rgba(8,15,34,.15) 100%); }
+.scrim.full { background: rgba(8,15,34,.78); }
+.scrim.bottom { background: linear-gradient(0deg, rgba(8,15,34,.95) 0%, rgba(8,15,34,.55) 55%, rgba(8,15,34,.35) 100%); }
+.vignette { position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 50%, transparent 55%, rgba(3,7,18,.75) 100%); pointer-events: none; }
+.grain { position: absolute; inset: -50%; opacity: .07; pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation: grain 1.2s steps(4) infinite; }
+@keyframes grain { 0%{transform:translate(0,0)} 25%{transform:translate(-3%,2%)} 50%{transform:translate(2%,-3%)} 75%{transform:translate(-2%,-1%)} 100%{transform:translate(0,0)} }
+
+/* Bụi vàng bay */
+.dust { position: absolute; inset: 0; pointer-events: none; }
+.dust i { position: absolute; width: 4px; height: 4px; border-radius: 50%; background: var(--gold-2); box-shadow: 0 0 10px var(--gold); opacity: 0; animation: float 9s linear infinite; }
+@keyframes float { 0%{opacity:0; transform:translateY(0)} 15%{opacity:.8} 100%{opacity:0; transform:translateY(-320px) translateX(60px)} }
+
+/* ---------- Thương hiệu ---------- */
+.brand { position: absolute; left: 96px; top: 72px; display: flex; align-items: center; gap: 28px; z-index: 5; }
+.brand .logo { width: 104px; height: 104px; padding: 8px; border: 2px solid var(--line); background: rgba(255,255,255,.04); }
+.brand .logo img { width: 100%; height: 100%; object-fit: contain; display: block; }
+.brand .name { font-size: 22px; letter-spacing: 7px; color: var(--ink); opacity: .9; font-weight: 500; }
+.brand.small .logo { width: 72px; height: 72px; padding: 6px; }
+.brand.small .name { font-size: 18px; letter-spacing: 6px; }
+
+/* ---------- Chữ ---------- */
+.eyebrow { display: flex; align-items: center; gap: 24px; font-size: 24px; letter-spacing: 8px; text-transform: uppercase; color: var(--gold); font-weight: 600; }
+.eyebrow::after { content: ""; width: 120px; height: 2px; background: var(--gold); opacity: .7; }
+.eyebrow .tag { padding: 6px 14px; border: 1.5px solid var(--gold); border-radius: 6px; letter-spacing: 4px; font-family: var(--mono); font-size: 20px; }
+h1, h2 { font-weight: 800; line-height: 1.04; letter-spacing: -1px; }
+h1 { font-size: 132px; text-transform: uppercase; }
+h2 { font-size: 72px; line-height: 1.12; }
+.hl { background: linear-gradient(100deg, #C98E2E 0%, #F6D88E 45%, #E8B54A 70%, #B9822A 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.serif { font-family: var(--serif); font-style: italic; font-weight: 400; }
+.lead { font-family: var(--serif); font-style: italic; font-size: 46px; line-height: 1.3; color: var(--ink); }
+.body { font-size: 28px; line-height: 1.5; color: var(--muted); }
+.mono { font-family: var(--mono); }
+.rule { width: 128px; height: 6px; background: #D2482F; border-radius: 2px; }
+
+.mask { display: block; overflow: hidden; padding: .16em 0 .1em; margin: -.16em 0 -.1em; }
+.mask .line { display: block; transform: translateY(110%); }
+.run .mask .line { animation: up 1s var(--ease) both; animation-delay: var(--d, 0s); }
+@keyframes up { to { transform: translateY(0); } }
+
+.anim { opacity: 0; }
+.run .anim { animation: fadeUp .9s var(--ease) both; animation-delay: var(--d, 0s); }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: none; } }
+.run .anim.zoom { animation-name: zoomIn; }
+@keyframes zoomIn { from { opacity: 0; transform: scale(.92); } to { opacity: 1; transform: none; } }
+.run .anim.left { animation-name: fromLeft; }
+@keyframes fromLeft { from { opacity: 0; transform: translateX(-40px); } to { opacity: 1; transform: none; } }
+
+/* ---------- Thành phần ---------- */
+.chips { display: flex; gap: 22px; list-style: none; flex-wrap: wrap; }
+.chips li { font-family: var(--serif); font-size: 32px; padding: 12px 40px; border: 2px solid var(--gold); border-radius: 999px; color: var(--ink); background: rgba(11,22,48,.55); }
+
+.card { background: var(--card); border: 2px solid var(--line); border-radius: 22px; overflow: hidden; backdrop-filter: blur(6px); box-shadow: 0 30px 60px rgba(0,0,0,.35); }
+.card.glow { border-color: var(--gold); box-shadow: 0 0 0 1px rgba(232,181,74,.2), 0 0 60px rgba(232,181,74,.18), 0 30px 60px rgba(0,0,0,.35); }
+.big { font-weight: 800; font-size: 76px; line-height: 1; color: var(--gold); letter-spacing: -1px; }
+.pill { display: flex; align-items: center; gap: 22px; padding: 20px 36px; border: 2px solid var(--gold); border-radius: 22px; background: rgba(11,22,48,.7); font-size: 28px; font-weight: 600; }
+.pill .ico { width: 56px; height: 56px; color: var(--gold); flex: none; }
+.pill .sep { width: 2px; height: 48px; background: var(--line); }
+.check { display: flex; align-items: center; gap: 16px; font-size: 26px; color: var(--muted); }
+.check svg { width: 44px; height: 44px; color: var(--gold); flex: none; }
+
+/* Ảnh minh hoạ trong khung: dùng ảnh thật nếu có (data-photo), không thì giữ hình vẽ */
+.frame { position: relative; overflow: hidden; }
+.frame > .ph { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity .8s; }
+.frame.loaded > .ph { opacity: 1; }
+.frame.loaded > .art { visibility: hidden; }
+
+/* Chân trang */
+.foot { position: absolute; left: 96px; right: 96px; bottom: 52px; display: flex; align-items: center; gap: 28px; font-size: 20px; letter-spacing: 6px; color: var(--gold); z-index: 5; }
+.foot::after { content: ""; flex: 1; height: 1.5px; background: var(--line); order: 1; }
+.foot .pg { order: 2; font-family: var(--mono); letter-spacing: 2px; color: var(--muted); }
+.note { font-size: 20px; color: var(--muted); letter-spacing: 1px; font-style: italic; }
+
+/* ---------- Laptop + ứng dụng (mockup) ---------- */
+.laptop { position: absolute; }
+.laptop .lid { position: relative; background: #0A0F1C; border: 2px solid #2A3550; border-radius: 26px 26px 6px 6px; padding: 22px; box-shadow: 0 50px 90px rgba(0,0,0,.55), 0 0 80px rgba(232,181,74,.12); }
+.laptop .base { height: 26px; margin: 0 -70px; background: linear-gradient(#3A4560, #1B2236); border-radius: 0 0 26px 26px; position: relative; }
+.laptop .base::after { content: ""; position: absolute; left: 50%; top: 0; width: 180px; height: 9px; transform: translateX(-50%); background: #0E1424; border-radius: 0 0 10px 10px; }
+.app { width: 100%; aspect-ratio: 16 / 10; background: #0E1628; border-radius: 6px; overflow: hidden; display: grid; grid-template-rows: 52px 1fr; font-size: 18px; }
+.app .bar { display: flex; align-items: center; gap: 10px; padding: 0 18px; background: #131E36; border-bottom: 1px solid #22304F; color: #C9D4E6; font-size: 17px; }
+.app .bar i { width: 11px; height: 11px; border-radius: 50%; background: #2C3A5C; }
+.app .bar b { margin-left: 10px; font-weight: 600; }
+.app .bar .file { margin-left: auto; font-family: var(--mono); font-size: 13px; color: var(--gold-2); background: rgba(232,181,74,.12); padding: 3px 10px; border-radius: 6px; }
+.app .main { display: grid; grid-template-columns: 40% 60%; min-height: 0; }
+.app .chat { padding: 20px; display: flex; flex-direction: column; gap: 14px; border-right: 1px solid #22304F; overflow: hidden; }
+.msg { padding: 12px 14px; border-radius: 12px; line-height: 1.45; font-size: 19px; max-width: 94%; opacity: 0; }
+.msg.me { align-self: flex-end; background: #E8B54A; color: #1A1406; font-weight: 600; border-bottom-right-radius: 4px; }
+.msg.ai { background: #17233F; color: #DCE4F2; border: 1px solid #263659; border-bottom-left-radius: 4px; }
+.msg.tool { font-family: var(--mono); font-size: 15px; color: #8FC1EA; background: rgba(143,193,234,.08); border: 1px dashed rgba(143,193,234,.35); }
+.msg .src { display: inline-block; margin-top: 6px; font-family: var(--mono); font-size: 14px; color: var(--gold-2); background: rgba(232,181,74,.12); padding: 2px 8px; border-radius: 5px; }
+.msg b.n { color: var(--gold-2); font-size: 22px; }
+.run .msg { animation: fadeUp .6s var(--ease) both; animation-delay: var(--d, 0s); }
+.viewer { position: relative; background: #0B1222; }
+.viewer img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
+.viewer .tag { position: absolute; left: 16px; top: 14px; font-family: var(--mono); font-size: 14px; color: #8FC1EA; letter-spacing: 1px; }
+
+/* Vòng khoanh đỏ trên bản vẽ */
+.ring { position: absolute; width: 9%; aspect-ratio: 1; transform: translate(-50%, -50%) scale(.4); border: 3px solid var(--red); border-radius: 50%; box-shadow: 0 0 18px rgba(255,77,79,.75), inset 0 0 12px rgba(255,77,79,.4); opacity: 0; }
+.run .ring { animation: ring .7s var(--ease) both, pulse 2.2s ease-in-out infinite; animation-delay: var(--d, 0s), calc(var(--d, 0s) + .7s); }
+@keyframes ring { to { opacity: 1; transform: translate(-50%, -50%) scale(1); } }
+@keyframes pulse { 50% { box-shadow: 0 0 34px rgba(255,77,79,.95), inset 0 0 18px rgba(255,77,79,.55); } }
+.ring-label { position: absolute; transform: translate(-50%, 0); font-family: var(--mono); font-size: 15px; color: #fff; background: var(--red); padding: 2px 7px; border-radius: 4px; opacity: 0; white-space: nowrap; }
+.run .ring-label { animation: fadeUp .5s var(--ease) both; animation-delay: var(--d, 0s); }
+
+/* Đường vẽ tự hiện (stroke) */
+.draw path, .draw line, .draw rect, .draw circle { stroke-dasharray: var(--len, 1200); stroke-dashoffset: var(--len, 1200); }
+.run .draw path, .run .draw line, .run .draw rect, .run .draw circle { animation: draw 2.4s ease-out both; animation-delay: var(--d, 0s); }
+@keyframes draw { to { stroke-dashoffset: 0; } }

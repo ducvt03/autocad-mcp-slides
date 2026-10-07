@@ -3,200 +3,47 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Slide 10 - Kế hoạch & Kêu gọi hợp tác</title>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-<link href="slide-common.css" rel="stylesheet">
+<title>10 · Lời kêu gọi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&family=Noto+Serif:ital,wght@1,400;1,500&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="deck.css" rel="stylesheet">
 <style>
-.closing-grid {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 32px;
-}
-
-.alloc-list {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  margin-top: 16px;
-}
-
-.alloc-item {
-  padding: 16px 20px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-
-.alloc-pct {
-  font-family: var(--mono);
-  font-size: 32px;
-  font-weight: 800;
-  color: var(--cyan);
-  min-width: 80px;
-}
-
-.alloc-pct.amber { color: var(--amber); }
-.alloc-pct.emerald { color: var(--emerald); }
-
-.alloc-title {
-  font-size: 16px;
-  font-weight: 700;
-  color: #fff;
-  margin-bottom: 4px;
-}
-
-.alloc-sub {
-  font-size: 13.5px;
-  color: var(--muted);
-  line-height: 1.4;
-}
-
-.vision-card {
-  padding: 30px;
-  border-radius: 18px;
-  background: linear-gradient(145deg, rgba(15, 23, 42, 0.85) 0%, rgba(30, 41, 59, 0.5) 100%);
-  border: 1px solid rgba(0, 240, 255, 0.25);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.vision-header {
-  font-size: 20px;
-  font-weight: 800;
-  color: #fff;
-  margin-bottom: 18px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.vision-items {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.v-item {
-  display: flex;
-  gap: 12px;
-  font-size: 14px;
-  line-height: 1.5;
-  color: var(--muted);
-}
-
-.v-item b {
-  color: #fff;
-}
-
-.cta-box {
-  margin-top: 24px;
-  padding: 20px;
-  border-radius: 14px;
-  background: linear-gradient(90deg, var(--cyan-dark), var(--amber-dark));
-  border: 1px solid rgba(0, 240, 255, 0.4);
-  text-align: center;
-}
-
-.cta-text {
-  font-size: 17px;
-  font-weight: 800;
-  color: #fff;
-  margin-bottom: 6px;
-}
-
-.cta-sub {
-  font-size: 13.5px;
-  color: var(--muted);
-}
+  .copy { position: absolute; left: 96px; top: 270px; width: 1100px; display: flex; flex-direction: column; gap: 34px; z-index: 3; }
+  .copy h1 { font-size: 124px; }
+  .asks { display: flex; flex-direction: column; gap: 16px; }
+  .asks .check { font-size: 30px; color: var(--ink); }
+  .asks .check b { color: var(--gold-2); }
+  .contact { position: absolute; left: 96px; bottom: 64px; display: flex; gap: 48px; font-size: 24px; color: var(--muted); z-index: 3; }
+  .contact b { color: var(--ink); font-weight: 600; }
+  .thanks { position: absolute; right: 96px; bottom: 150px; font-family: var(--serif); font-style: italic; font-size: 64px; color: var(--gold-2); z-index: 3; }
 </style>
 </head>
-<body>
+<body data-image="assets/s10.webp,assets/s10.jpg,assets/s10.png">
+<div class="stage" id="stage">
+  <div class="bg"><div class="kb" style="--kb-origin:80% 40%"><img class="scene" src="assets/scene-city.svg" alt=""><img class="photo" alt=""></div></div>
+  <div class="scrim"></div><div class="vignette"></div><div class="dust"></div><div class="grain"></div>
 
-<div class="slide-container">
-  <div class="glow-spot top-right"></div>
-  <div class="glow-spot bottom-left"></div>
+  <header class="brand small anim" style="--d:.2s">
+    <div class="logo"><img src="assets/logo-tdu.png" alt="Logo Trường Đại học Thành Đông"></div>
+    <span class="name">TRƯỜNG ĐẠI HỌC THÀNH ĐÔNG</span>
+  </header>
 
-  <div class="slide-header">
-    <div class="slide-tag amber fade-up">10 / 10 • KẾ HOẠCH & HỢP TÁC</div>
-    <h2 class="slide-title fade-up delay-1">Đồng Hành Cùng Tương Lai AI Hóa Ngành Xây Dựng</h2>
-    <p class="slide-subtitle fade-up delay-2">Sẵn sàng mở rộng quy mô, hoàn thiện bộ công cụ và triển khai thử nghiệm trên các dự án trọng điểm.</p>
-  </div>
-
-  <div class="closing-grid">
-    <!-- Allocation of Capital -->
-    <div class="card fade-up delay-2">
-      <h3 class="card-title">Kế Hoạch Phân Bổ Nguồn Lực & Sử Dụng Vốn</h3>
-      <p class="card-desc">Tập trung tối đa vào lợi thế công nghệ cốt lõi và phát triển thị trường:</p>
-
-      <div class="alloc-list">
-        <div class="alloc-item">
-          <div class="alloc-pct">40%</div>
-          <div>
-            <div class="alloc-title">R&D Nâng Cao & Chuẩn Hóa Định Mức</div>
-            <div class="alloc-sub">Hoàn thiện parser bóc tách thép tự do và tích hợp trọn bộ cơ sở dữ liệu Định mức Nhà nước.</div>
-          </div>
-        </div>
-
-        <div class="alloc-item">
-          <div class="alloc-pct amber">35%</div>
-          <div>
-            <div class="alloc-title">Kinh Doanh & Phát Triển Thị Trường B2B</div>
-            <div class="alloc-sub">Xây dựng đội ngũ tư vấn giải pháp, tổ chức workshop thực chiến cho cộng đồng kỹ sư QS.</div>
-          </div>
-        </div>
-
-        <div class="alloc-item">
-          <div class="alloc-pct emerald">25%</div>
-          <div>
-            <div class="alloc-title">Hạ Tầng Cloud & Năng Lực Xử Lý Siêu File</div>
-            <div class="alloc-sub">Nâng cấp cụm máy chủ RAM cao, tăng tốc xử lý các file CAD quy hoạch và hạ tầng kích thước &gt;100MB.</div>
-          </div>
-        </div>
-      </div>
+  <section class="copy">
+    <h1>
+      <span class="mask"><span class="line" style="--d:.4s">Mỗi con số</span></span>
+      <span class="mask"><span class="line hl" style="--d:.6s">đều có nguồn.</span></span>
+    </h1>
+    <div class="rule anim" style="--d:1s"></div>
+    <div class="asks">
+      <div class="check anim left" style="--d:1.2s"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linejoin="round" stroke-linecap="round"><path d="M24 4l16 6v12c0 10-7 18-16 22C15 40 8 32 8 22V10z"/><path d="M17 24l5 5 9-10"/></svg>Vốn: <b>[__ tỷ đồng]</b> cho [__ tháng]</div>
+      <div class="check anim left" style="--d:1.35s"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linejoin="round" stroke-linecap="round"><path d="M24 4l16 6v12c0 10-7 18-16 22C15 40 8 32 8 22V10z"/><path d="M17 24l5 5 9-10"/></svg>Bản vẽ thật từ ít nhất 3 đơn vị thiết kế</div>
+      <div class="check anim left" style="--d:1.5s"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linejoin="round" stroke-linecap="round"><path d="M24 4l16 6v12c0 10-7 18-16 22C15 40 8 32 8 22V10z"/><path d="M17 24l5 5 9-10"/></svg>Kỹ sư dự toán chấm đối chiếu theo hạng mục</div>
     </div>
+  </section>
 
-    <!-- Long-term Vision & Call to action -->
-    <div class="vision-card fade-up delay-3">
-      <div>
-        <div class="vision-header">
-          <span style="color:var(--cyan);">✦</span> Tầm Nhìn Dài Hạn
-        </div>
-
-        <div class="vision-items">
-          <div class="v-item">
-            <span style="color:var(--cyan);font-weight:800;">01</span>
-            <div><b>Bộ Não Trợ Lý Ảo Của Mọi Kỹ Sư:</b> Trở thành công cụ tiêu chuẩn hàng ngày của hàng chục nghìn kỹ sư dự toán tại Việt Nam.</div>
-          </div>
-
-          <div class="v-item">
-            <span style="color:var(--cyan);font-weight:800;">02</span>
-            <div><b>Tiên Lượng Đa Định Dạng:</b> Mở rộng sang đọc bản vẽ PDF vector, mô hình BIM (IFC / Revit) trên cùng một chuẩn giao thức kết nối MCP.</div>
-          </div>
-
-          <div class="v-item">
-            <span style="color:var(--cyan);font-weight:800;">03</span>
-            <div><b>Tự Động Tối Ưu Chi Phí:</b> Khai phá dữ liệu dự toán để xây dựng hệ thống phát hiện xung đột thiết kế và gợi ý phương án tiết kiệm ngân sách.</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- CTA -->
-      <div class="cta-box">
-        <div class="cta-text">SẴN SÀNG HỢP TÁC & TRIỂN KHAI THỰC TẾ</div>
-        <div class="cta-sub">Rất hân hạnh được đồng hành cùng quý đối tác, nhà thầu và các nhà đầu tư!</div>
-      </div>
-    </div>
-  </div>
+  <div class="thanks anim" style="--d:1.8s">Xin cảm ơn!</div>
+  <div class="contact anim" style="--d:2s"><b>[Họ tên liên hệ]</b><span>[email]</span><span>[số điện thoại]</span><span>Demo: doc-autocad-mcp-demo.onrender.com</span></div>
 </div>
-
-<script>
-window.addEventListener('click', () => {
-  window.parent.postMessage({ action: 'next' }, '*');
-});
-</script>
+<script src="deck.js"></script>
 </body>
 </html>

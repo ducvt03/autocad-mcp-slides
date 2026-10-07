@@ -3,161 +3,62 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Slide 05 - Cơ hội thị trường</title>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-<link href="slide-common.css" rel="stylesheet">
+<title>05 · Công nghệ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&family=Noto+Serif:ital,wght@1,400;1,500&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="deck.css" rel="stylesheet">
 <style>
-.market-tiers {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  margin-bottom: 30px;
-}
+  .head { position: absolute; left: 96px; top: 96px; display: flex; flex-direction: column; gap: 22px; z-index: 3; }
+  .stack { position: absolute; left: 96px; top: 330px; width: 1040px; display: flex; flex-direction: column; gap: 22px; z-index: 3; }
+  .layer { display: grid; grid-template-columns: 150px 1fr auto; align-items: center; gap: 28px; padding: 26px 36px; }
+  .layer .no { font-family: var(--mono); font-size: 22px; color: var(--gold); letter-spacing: 2px; }
+  .layer h3 { font-size: 34px; font-weight: 800; }
+  .layer p { font-size: 24px; color: var(--muted); margin-top: 4px; }
+  .layer .badge { font-family: var(--mono); font-size: 20px; padding: 8px 16px; border-radius: 8px; border: 1.5px solid var(--line); color: var(--gold-2); white-space: nowrap; }
+  .layer.core { background: linear-gradient(100deg, rgba(232,181,74,.22), rgba(11,22,48,.85) 60%); border-color: var(--gold); }
+  .layer.core .badge { background: var(--gold); color: #1A1406; border-color: var(--gold); font-weight: 600; }
+  .flow { position: absolute; left: 76px; top: 380px; width: 4px; height: 420px; background: linear-gradient(var(--gold), rgba(232,181,74,.1)); border-radius: 2px; z-index: 2; }
 
-.tier-card {
-  padding: 28px;
-  border-radius: 16px;
-  background: rgba(15, 23, 42, 0.7);
-  border: 1px solid var(--border);
-  position: relative;
-  overflow: hidden;
-}
-
-.tier-badge {
-  font-family: var(--mono);
-  font-size: 13px;
-  font-weight: 800;
-  letter-spacing: 1.5px;
-  color: var(--cyan);
-  margin-bottom: 8px;
-}
-
-.tier-val {
-  font-size: 46px;
-  font-weight: 800;
-  font-family: var(--mono);
-  line-height: 1.1;
-  margin-bottom: 12px;
-}
-
-.tier-name {
-  font-size: 15px;
-  font-weight: 700;
-  text-transform: uppercase;
-  color: #fff;
-  margin-bottom: 10px;
-}
-
-.tier-desc {
-  font-size: 14px;
-  line-height: 1.6;
-  color: var(--muted);
-}
-
-.drivers-box {
-  padding: 22px 28px;
-  border-radius: 14px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid var(--border);
-}
-
-.drivers-title {
-  font-size: 14px;
-  font-weight: 700;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: var(--amber);
-  margin-bottom: 12px;
-}
-
-.drivers-list {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  list-style: none;
-}
-
-.driver-item {
-  font-size: 13.5px;
-  line-height: 1.5;
-  color: var(--muted);
-  display: flex;
-  gap: 10px;
-}
-
-.driver-item span {
-  color: var(--cyan);
-  font-weight: 700;
-}
+  .side { position: absolute; left: 1184px; right: 96px; top: 330px; display: flex; flex-direction: column; gap: 28px; z-index: 3; }
+  .side .card { padding: 36px 40px; display: flex; flex-direction: column; gap: 16px; }
+  .side h3 { font-size: 36px; font-weight: 800; }
+  .side p { font-size: 25px; color: var(--muted); line-height: 1.5; }
+  .tags { display: flex; gap: 12px; flex-wrap: wrap; }
+  .tags span { font-size: 22px; padding: 8px 18px; border-radius: 999px; border: 1.5px solid var(--gold); color: var(--ink); }
 </style>
 </head>
-<body>
+<body data-image="assets/s05.webp,assets/s05.jpg,assets/s05.png">
+<div class="stage" id="stage">
+  <div class="bg"><div class="kb"><img class="scene" src="assets/scene-city.svg" alt=""><img class="photo" alt=""></div></div>
+  <div class="scrim full"></div><div class="vignette"></div><div class="grain"></div>
 
-<div class="slide-container">
-  <div class="glow-spot top-right"></div>
+  <section class="head">
+    <div class="eyebrow anim" style="--d:.2s">Công nghệ</div>
+    <h2><span class="mask"><span class="line" style="--d:.4s">AI hiểu câu hỏi. <span class="hl">Code tính con số.</span></span></span></h2>
+  </section>
 
-  <div class="slide-header">
-    <div class="slide-tag fade-up">05 / 10 • CƠ HỘI THỊ TRƯỜNG</div>
-    <h2 class="slide-title fade-up delay-1">Thị Trường Tiềm Năng Lớn & Chưa Khai Phá Hiệu Quả</h2>
-    <p class="slide-subtitle fade-up delay-2">Ngành ConTech đang tăng tốc số hóa mạnh mẽ với nhu cầu cấp thiết về tinh gọn bộ máy kỹ thuật.</p>
+  <div class="flow anim" style="--d:1.6s"></div>
+  <div class="stack">
+    <div class="card layer anim left" style="--d:.7s"><span class="no">TẦNG 1</span><div><h3>Web app</h3><p>Chat, xem ảnh khoanh đỏ, tải Excel</p></div><span class="badge">Flask</span></div>
+    <div class="card layer anim left" style="--d:.85s"><span class="no">TẦNG 2</span><div><h3>Cầu nối AI</h3><p>Gemini gọi công cụ · 21 luật chống bịa</p></div><span class="badge">MCP bridge</span></div>
+    <div class="card layer anim left" style="--d:1s"><span class="no">TẦNG 3</span><div><h3>MCP server chuẩn</h3><p>Đọc · đếm · tính · đánh dấu · xuất file</p></div><span class="badge"><span class="num" data-v="37" data-delay="1.2">0</span> công cụ</span></div>
+    <div class="card layer core anim left" style="--d:1.15s"><span class="no">TẦNG 4</span><div><h3>Lõi tính tất định</h3><p>Đọc DWG/DXF bằng code, mọi số kèm handle</p></div><span class="badge"><span class="num" data-v="12" data-delay="1.3">0</span> công thức</span></div>
   </div>
 
-  <div class="market-tiers">
-    <!-- TAM -->
-    <div class="tier-card fade-up delay-2" style="border-top: 4px solid #38BDF8;">
-      <div class="tier-badge">TAM (TỔNG THỊ TRƯỜNG)</div>
-      <div class="tier-val" style="color:#38BDF8;">$12.5B+</div>
-      <div class="tier-name">ConTech Toàn Cầu</div>
-      <p class="tier-desc">
-        Quy mô phần mềm quản lý và ước tính chi phí xây dựng (Construction Estimation Software) trên toàn thế giới, tốc độ tăng trưởng CAGR đạt <b>9.8%/năm</b>.
-      </p>
+  <div class="side">
+    <div class="card glow anim" style="--d:1.4s">
+      <h3>Chuẩn mở, không khoá</h3>
+      <p>MCP server cắm được vào nhiều trợ lý AI. Đổi mô hình không phải viết lại lõi.</p>
+      <div class="tags"><span>Claude Desktop</span><span>Gemini CLI</span><span>Cursor</span></div>
     </div>
-
-    <!-- SAM -->
-    <div class="tier-card fade-up delay-3" style="border-top: 4px solid var(--cyan);">
-      <div class="tier-badge">SAM (THỊ TRƯỜNG MỤC TIÊU)</div>
-      <div class="tier-val cyan">$120M+</div>
-      <div class="tier-name">AEC Việt Nam & ĐNA</div>
-      <p class="tier-desc">
-        Hơn <b>15.000 doanh nghiệp</b> nhà thầu xây dựng, tư vấn thiết kế và quản lý dự án tại Việt Nam và khu vực Đông Nam Á đang trong giai đoạn chuyển đổi số.
-      </p>
-    </div>
-
-    <!-- SOM -->
-    <div class="tier-card fade-up delay-4" style="border-top: 4px solid var(--amber);">
-      <div class="tier-badge">SOM (MỤC TIÊU BAN ĐẦU)</div>
-      <div class="tier-val amber">$15M</div>
-      <div class="tier-name">Tiếp Cận Tiên Phong</div>
-      <p class="tier-desc">
-        Tập trung vào <b>2.500 công ty</b> tư vấn thiết kế, nhà thầu cơ điện (M&E), dân dụng và hạ tầng tại các đô thị trọng điểm (Hà Nội, TP.HCM, Đà Nẵng).
-      </p>
+    <div class="card glow anim" style="--d:1.6s">
+      <h3>Không train model</h3>
+      <p>Không cần dữ liệu huấn luyện. Bản vẽ mới dùng được ngay, chạy cloud hoặc máy chủ nội bộ.</p>
     </div>
   </div>
 
-  <!-- Drivers Box -->
-  <div class="drivers-box fade-up delay-5">
-    <div class="drivers-title">ĐỘNG LỰC THÚC ĐẨY THỊ TRƯỜNG</div>
-    <div class="drivers-list">
-      <div class="driver-item">
-        <span>•</span>
-        <div><b>Đầu tư công bùng nổ:</b> Làn sóng hạ tầng đòi hỏi tốc độ thẩm định hồ sơ dự toán tăng gấp nhiều lần để kịp tiến độ giải ngân.</div>
-      </div>
-      <div class="driver-item">
-        <span>•</span>
-        <div><b>Áp lực tinh gọn:</b> Nhu cầu cắt giảm chi phí nhân sự kỹ thuật thủ công thúc đẩy các tổng thầu tìm kiếm giải pháp AI tự động hóa.</div>
-      </div>
-      <div class="driver-item">
-        <span>•</span>
-        <div><b>Chuyển dịch sang Cloud:</b> Xu hướng sử dụng nền tảng mở kết nối qua API, không phụ thuộc license phần mềm CAD đóng đắt đỏ.</div>
-      </div>
-    </div>
-  </div>
+  <footer class="foot anim" style="--d:1.8s">AUTOCAD MCP<span class="pg">05</span></footer>
 </div>
-
-<script>
-window.addEventListener('click', () => {
-  window.parent.postMessage({ action: 'next' }, '*');
-});
-</script>
+<script src="deck.js"></script>
 </body>
 </html>

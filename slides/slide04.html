@@ -3,121 +3,70 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Slide 04 - Công nghệ & Hàng rào Moat</title>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-<link href="slide-common.css" rel="stylesheet">
+<title>04 · Demo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&family=Noto+Serif:ital,wght@1,400;1,500&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="deck.css" rel="stylesheet">
 <style>
-.moat-card {
-  display: flex;
-  gap: 20px;
-  align-items: flex-start;
-  padding: 24px;
-  background: rgba(15, 23, 42, 0.7);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  transition: all 0.3s ease;
-}
-
-.moat-card:hover {
-  border-color: var(--cyan);
-  background: rgba(15, 23, 42, 0.9);
-  transform: translateY(-2px);
-}
-
-.moat-num {
-  font-family: var(--mono);
-  font-size: 26px;
-  font-weight: 800;
-  color: var(--cyan);
-  line-height: 1;
-  background: var(--cyan-dark);
-  border: 1px solid rgba(0, 240, 255, 0.3);
-  padding: 12px 14px;
-  border-radius: 12px;
-}
-
-.moat-title {
-  font-size: 19px;
-  font-weight: 700;
-  color: #fff;
-  margin-bottom: 8px;
-}
-
-.moat-desc {
-  font-size: 14px;
-  line-height: 1.6;
-  color: var(--muted);
-}
-
-.highlight-text {
-  color: var(--amber);
-  font-weight: 600;
-}
+  .copy { position: absolute; left: 96px; top: 96px; width: 500px; display: flex; flex-direction: column; gap: 30px; z-index: 3; }
+  .copy h2 { font-size: 76px; }
+  .copy .lead { font-size: 34px; }
+  .steps { list-style: none; display: flex; flex-direction: column; gap: 18px; margin-top: 10px; }
+  .steps li { display: flex; gap: 18px; align-items: center; font-size: 26px; }
+  .steps b { flex: none; width: 52px; height: 52px; border-radius: 50%; border: 2px solid var(--gold); color: var(--gold); display: grid; place-items: center; font-family: var(--mono); font-size: 22px; }
+  .laptop { left: 660px; top: 150px; width: 1180px; z-index: 3; }
+  .cap { position: absolute; left: 660px; width: 1180px; top: 960px; text-align: center; z-index: 3; }
 </style>
 </head>
-<body>
+<body data-image="assets/s04.webp,assets/s04.jpg,assets/s04.png">
+<div class="stage" id="stage">
+  <div class="bg"><div class="kb"><img class="scene" src="assets/scene-city.svg" alt=""><img class="photo" alt=""></div></div>
+  <div class="scrim"></div><div class="vignette"></div><div class="grain"></div>
 
-<div class="slide-container">
-  <div class="glow-spot top-right"></div>
-  <div class="glow-spot bottom-left"></div>
+  <section class="copy">
+    <div class="eyebrow anim" style="--d:.2s"><span class="tag">DEMO</span></div>
+    <h2>
+      <span class="mask"><span class="line" style="--d:.35s">Hỏi như hỏi</span></span>
+      <span class="mask"><span class="line hl" style="--d:.5s">đồng nghiệp</span></span>
+    </h2>
+    <p class="lead anim" style="--d:.8s">AI hiểu câu hỏi và gọi công cụ. Con số do code đọc từ bản vẽ.</p>
+    <ul class="steps">
+      <li class="anim left" style="--d:1.1s"><b>1</b>Gõ câu hỏi tiếng Việt</li>
+      <li class="anim left" style="--d:1.25s"><b>2</b>AI gọi công cụ MCP</li>
+      <li class="anim left" style="--d:1.4s"><b>3</b>Nhận số + handle + khoanh đỏ</li>
+      <li class="anim left" style="--d:1.55s"><b>4</b>Thiếu dữ liệu → AI hỏi lại</li>
+    </ul>
+  </section>
 
-  <div class="slide-header">
-    <div class="slide-tag fade-up">04 / 10 • CÔNG NGHỆ & LỢI THẾ CẠNH TRANH</div>
-    <h2 class="slide-title fade-up delay-1">4 Lớp Hàng Rào Công Nghệ (Moat) Khó Sao Chép</h2>
-    <p class="slide-subtitle fade-up delay-2">Xây dựng trên nền tảng kỹ thuật chuyên sâu xử lý dị biệt bản vẽ CAD kỹ thuật tại thị trường Việt Nam.</p>
+  <div class="laptop anim zoom" style="--d:.5s">
+    <div class="lid">
+      <div class="app">
+        <div class="bar"><i></i><i></i><i></i><b>AutoCAD MCP</b><span class="file">KT-01_mat-bang.dwg</span></div>
+        <div class="main">
+          <div class="chat">
+            <div class="msg me" style="--d:1.4s">Đánh dấu cửa D1 trên bản vẽ</div>
+            <div class="msg tool" style="--d:2.1s">⚙ tim_kiem("D1")<br>⚙ danh_dau_cau_kien("D1")</div>
+            <div class="msg ai" style="--d:2.9s">Tìm thấy <b class="n">3</b> vị trí cửa D1, đã khoanh đỏ trên bản vẽ.<br><span class="src">handle 2A41 · 2A5C · 2B07</span></div>
+            <div class="msg me" style="--d:4.6s">Inox mỗi bộ bao nhiêu kg? Tính tổng giúp mình</div>
+            <div class="msg tool" style="--d:5.3s">⚙ tinh_dai_luong("inox")</div>
+            <div class="msg ai" style="--d:6.1s">Ghi chú bản vẽ: <b class="n">8,62 kg/bộ</b> <span class="src">handle 67FFC</span><br>Bản vẽ chưa ghi số bộ. Bạn xác nhận số bộ để mình tính tổng nhé?</div>
+          </div>
+          <div class="viewer">
+            <span class="tag">MODEL · KT-01</span>
+            <img src="assets/plan.svg" alt="Mặt bằng minh hoạ, ba cửa D1 được khoanh đỏ">
+            <i class="ring" style="left:31.3%;top:39.6%;--d:3.2s"></i><span class="ring-label" style="left:31.3%;top:45%;--d:3.3s">D1</span>
+            <i class="ring" style="left:67.5%;top:39.6%;--d:3.45s"></i><span class="ring-label" style="left:67.5%;top:45%;--d:3.55s">D1</span>
+            <i class="ring" style="left:77.5%;top:61.6%;--d:3.7s"></i><span class="ring-label" style="left:77.5%;top:67%;--d:3.8s">D1</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="base"></div>
   </div>
+  <p class="cap note anim" style="--d:6.6s">Giao diện minh hoạ · handle và số liệu là ví dụ</p>
 
-  <div class="grid-2">
-    <!-- Moat 1 -->
-    <div class="moat-card fade-up delay-1">
-      <div class="moat-num">01</div>
-      <div>
-        <h3 class="moat-title">Grounding Guard Độc Quyền</h3>
-        <p class="moat-desc">
-          Kiểm soát <b>100% số đo lường</b> trước khi xuất ra. Bịt kín 6 kênh rò rỉ số ảo. Bất kỳ con số nào không đối soát được với dữ liệu CAD gốc sẽ bị tiêu hủy ngay tại cửa ra output.
-        </p>
-      </div>
-    </div>
-
-    <!-- Moat 2 -->
-    <div class="moat-card fade-up delay-2">
-      <div class="moat-num">02</div>
-      <div>
-        <h3 class="moat-title">Giải Mã Font Tiếng Việt Toàn Diện</h3>
-        <p class="moat-desc">
-          Bộ giải mã <code style="color:var(--cyan);font-family:var(--mono);">vntext.py</code> xử lý triệt để bảng mã <b>TCVN3 (ABC), font VNI</b> và ký hiệu đường kính phi <span class="highlight-text">%%C</span> đặc thù. Đã kiểm chứng cứu thành công <b>108.000+ chuỗi text</b> mà các mô hình thông thường đều bó tay.
-        </p>
-      </div>
-    </div>
-
-    <!-- Moat 3 -->
-    <div class="moat-card fade-up delay-3">
-      <div class="moat-num">03</div>
-      <div>
-        <h3 class="moat-title">Đọc Nhị Phân Bảng Excel OLE (Zero-OCR)</h3>
-        <p class="moat-desc">
-          Công nghệ parse nhị phân trực tiếp từ blob <code style="color:var(--cyan);font-family:var(--mono);">OLE2Frame</code> nhúng trong file DWG. Đọc chính xác <b>89% các bảng thống kê thép</b> dán từ Excel vào CAD mà không cần qua OCR hình ảnh chậm chạp và dễ sai sót.
-        </p>
-      </div>
-    </div>
-
-    <!-- Moat 4 -->
-    <div class="moat-card fade-up delay-4">
-      <div class="moat-num">04</div>
-      <div>
-        <h3 class="moat-title">Bảng Kẻ Khung & Chứng Minh Decimal</h3>
-        <p class="moat-desc">
-          Thuật toán tự động nhận diện lưới kẻ bằng nét LINE tự do, chứng minh bằng đẳng thức số học Decimal nguyên <code style="color:var(--amber);font-family:var(--mono);">cd[i+1] - cd[i] == le[i]</code>, triệt tiêu sai số làm tròn trong các trắc dọc cống, đường hạ tầng kỹ thuật.
-        </p>
-      </div>
-    </div>
-  </div>
+  <footer class="foot anim" style="--d:1.8s">AUTOCAD MCP<span class="pg">04</span></footer>
 </div>
-
-<script>
-window.addEventListener('click', () => {
-  window.parent.postMessage({ action: 'next' }, '*');
-});
-</script>
+<script src="deck.js"></script>
 </body>
 </html>

@@ -3,26 +3,26 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>AutoCAD MCP - AI Bóc Tách Dự Toán Bản Vẽ Tự Động</title>
+<title>AutoCAD MCP · Pitch deck · Trường Đại học Thành Đông</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 
 <style>
 :root {
   color-scheme: dark;
-  --bg: #070B19;
+  --bg: #060C1C;
   --bg-card: rgba(15, 23, 42, 0.75);
   --ink: #F8FAFC;
   --muted: rgba(226, 232, 240, 0.72);
-  --cyan: #00F0FF;
-  --cyan-glow: rgba(0, 240, 255, 0.35);
+  --cyan: #E8B54A;
+  --cyan-glow: rgba(232, 181, 74, 0.35);
   --amber: #F5A623;
   --amber-glow: rgba(245, 166, 35, 0.4);
   --emerald: #10B981;
   --border: rgba(255, 255, 255, 0.12);
-  --border-active: rgba(0, 240, 255, 0.45);
-  --font: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+  --border-active: rgba(232, 181, 74, 0.55);
+  --font: "Be Vietnam Pro", "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
   --mono: "JetBrains Mono", monospace;
 }
 
@@ -41,7 +41,7 @@ body {
   position: fixed;
   inset: 0;
   background-image: 
-    radial-gradient(circle at 50% 10%, rgba(0, 240, 255, 0.08) 0%, transparent 60%),
+    radial-gradient(circle at 50% 10%, rgba(232, 181, 74, 0.06) 0%, transparent 60%),
     radial-gradient(circle at 85% 85%, rgba(245, 166, 35, 0.06) 0%, transparent 50%),
     linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
@@ -119,9 +119,9 @@ body {
   font-weight: 600;
   padding: 2px 7px;
   border-radius: 6px;
-  background: rgba(0, 240, 255, 0.12);
+  background: rgba(232, 181, 74, 0.12);
   color: var(--cyan);
-  border: 1px solid rgba(0, 240, 255, 0.3);
+  border: 1px solid rgba(232, 181, 74, 0.3);
 }
 
 /* Bottom Progress Bar */
@@ -248,13 +248,6 @@ body {
 
 <div class="bg-grid"></div>
 
-<!-- Top Branding -->
-<div class="brand-bar">
-  <div class="brand-dot"></div>
-  <span class="brand-title">AutoCAD MCP</span>
-  <span class="brand-badge">PITCH DECK</span>
-</div>
-
 <!-- Slides Deck -->
 <div class="deck" id="deck"></div>
 
@@ -278,7 +271,7 @@ body {
 </div>
 
 <div class="hint" id="hint">
-  Phím <b>→</b> hoặc <b>Space</b> chuyển tiếp · <b>←</b> lùi · <b>F</b> toàn màn hình · <b>Click</b> vào slide
+  Phím <b>→</b> hoặc <b>Space</b> chuyển tiếp · <b>←</b> lùi · <b>F</b> toàn màn hình · <b>R</b> chạy lại hiệu ứng · <b>Click</b> vào slide
 </div>
 
 <script>
@@ -393,6 +386,7 @@ window.addEventListener('message', (e) => {
   if (!e.data) return;
   if (e.data.action === 'next') nextSlide();
   if (e.data.action === 'prev') prevSlide();
+  if (e.data.action === 'fs') toggleFullScreen();
 });
 
 prevBtn.addEventListener('click', prevSlide);
