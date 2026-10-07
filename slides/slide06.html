@@ -8,34 +8,58 @@
 <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&family=Noto+Serif:ital,wght@1,400;1,500&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link href="deck.css" rel="stylesheet">
 <style>
-  .glowbg { position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 55%, rgba(232,181,74,.32) 0%, rgba(11,22,48,0) 55%), #0A1430; }
-  .rings { position: absolute; left: 50%; top: 52%; width: 1000px; height: 1000px; transform: translate(-50%, -50%); }
-  .run .rings { animation: spin 80s linear infinite; }
-  @keyframes spin { to { transform: translate(-50%, -50%) rotate(360deg); } }
-  .center { position: absolute; left: 0; right: 0; top: 220px; display: flex; flex-direction: column; align-items: center; gap: 30px; text-align: center; z-index: 3; }
-  .eyebrow::before { content: ""; width: 120px; height: 2px; background: var(--gold); opacity: .7; }
-  .kpi { font-weight: 900; line-height: 1.05; letter-spacing: -4px; }
-  .kpi .a { display: block; font-size: 130px; color: var(--ink); text-transform: uppercase; letter-spacing: -2px; }
-  .kpi .b { display: block; font-size: 290px; }
-  .center .lead { max-width: 1300px; font-size: 42px; }
+  .head { position: absolute; left: 96px; top: 96px; display: flex; flex-direction: column; gap: 22px; z-index: 3; }
+  .head h2 { font-size: 68px; }
+  .grid { position: absolute; left: 96px; right: 96px; top: 330px; display: grid; grid-template-columns: 1fr 1.25fr 1fr; gap: 32px; z-index: 3; }
+  .grid .card { padding: 40px 44px; display: flex; flex-direction: column; gap: 18px; }
+  .grid .tag { font-family: var(--mono); font-size: 22px; letter-spacing: 2px; color: var(--gold); text-transform: uppercase; }
+  .grid .big { font-size: 92px; white-space: nowrap; }
+  .grid .big.sm { font-size: 80px; }
+  .grid p { font-size: 26px; line-height: 1.5; color: var(--muted); }
+  .grid p b { color: var(--ink); font-weight: 600; }
+  .grid .card.hero { background: linear-gradient(140deg, rgba(232,181,74,.25), rgba(11,22,48,.85) 65%); }
+  .grid .card.todo { border-style: dashed; border-color: #5B6F85; box-shadow: none; }
+  .grid .card.todo .big { color: #8FA3B8; }
+  .arrow { color: var(--ink); font-weight: 500; }
+  .scope { position: absolute; left: 96px; right: 96px; top: 760px; z-index: 3; display: flex; flex-direction: column; gap: 14px; padding: 28px 36px; border-left: 4px solid var(--gold); background: rgba(11,22,48,.6); }
+  .scope p { font-size: 25px; line-height: 1.5; color: var(--muted); }
+  .scope b { color: var(--gold-2); font-weight: 600; }
 </style>
 </head>
 <body>
 <div class="stage" id="stage">
-  <div class="glowbg"></div>
-  <svg class="rings" viewBox="0 0 1000 1000" fill="none" aria-hidden="true"><g stroke="#E8B54A" stroke-opacity=".22"><circle cx="500" cy="500" r="490" stroke-width="2"/><circle cx="500" cy="500" r="420" stroke-dasharray="3 14" stroke-width="3"/><circle cx="500" cy="500" r="350"/><path d="M500 10V90M500 910V990M10 500H90M910 500H990" stroke-width="3"/></g></svg>
-  <div class="dust"></div><div class="vignette"></div><div class="grain"></div>
+  <div class="bg"><div class="kb"><img class="scene" src="assets/scene-city.svg" alt=""></div></div>
+  <div class="scrim full"></div><div class="vignette"></div><div class="grain"></div>
 
-  <section class="center">
-    <div class="eyebrow anim" style="--d:.2s">KPI cốt lõi</div>
-    <h2 class="kpi">
-      <span class="mask"><span class="line a" style="--d:.45s">Tỷ lệ bịa</span></span>
-      <span class="mask"><span class="line b hl" style="--d:.7s">≈ 0%</span></span>
-    </h2>
-    <p class="lead anim" style="--d:1.3s">Không phải trả lời 100% câu hỏi — mà là mọi con số đã đưa ra đều đúng và chỉ được về vị trí trên bản vẽ.</p>
+  <section class="head">
+    <div class="eyebrow anim" style="--d:.2s">KPI cốt lõi · số đo thật</div>
+    <h2><span class="mask"><span class="line" style="--d:.4s">Mục tiêu bịa <span class="hl">≈ 0%</span>. Đo thật được bao nhiêu?</span></span></h2>
   </section>
 
-  <footer class="foot anim" style="--d:1.6s">AUTOCAD MCP<span class="pg">06</span></footer>
+  <div class="grid">
+    <div class="card glow hero anim" style="--d:.7s">
+      <span class="tag">Tính tiền, quy đổi</span>
+      <div class="big">0 / <span class="num" data-v="8592" data-delay="1">0</span></div>
+      <p><b>Số liệu sai</b> khi đối chiếu với bộ tính độc lập, trên 300 bảng ngẫu nhiên: khối lượng quy đổi, thành tiền, tổng kinh phí.</p>
+    </div>
+    <div class="card glow anim" style="--d:.9s">
+      <span class="tag">Chọn mã định mức</span>
+      <div class="big sm">12,5% <span class="arrow">→</span> 8,0%</div>
+      <p>Tỷ lệ <b>trả mã sai mà vẫn tỏ ra chắc</b>, đo hai lần trên bộ câu giữ kín (80 và 75 câu). Mỗi lần đo đều tìm ra lỗi thật và đã vá. Khoảng tin cậy 95% của lần sau: 3,7% – 16,4%.</p>
+    </div>
+    <div class="card todo anim" style="--d:1.1s">
+      <span class="tag">Chưa đo</span>
+      <div class="big sm">Hệ thống</div>
+      <p><b>Cả hệ thống</b>: đọc bản vẽ thật bằng AI cần bản vẽ của nhiều đơn vị thiết kế và kỹ sư dự toán chấm điểm. Đây là việc cần làm tiếp.</p>
+    </div>
+  </div>
+
+  <div class="scope anim" style="--d:1.5s">
+    <p><b>Phạm vi:</b> tầng chọn mã định mức và tính tiền, cơ sở dữ liệu mẫu 29 mã, bộ câu do nhóm tự viết, chưa có kỹ sư chấm.</p>
+    <p><b>Cách đo:</b> bộ câu đóng băng trước khi chạy; sau khi sửa lỗi, bộ đó hết giá trị giữ kín nên phải viết bộ mới.</p>
+  </div>
+
+  <footer class="foot anim" style="--d:1.8s">AUTOCAD MCP<span class="pg">06</span></footer>
 </div>
 <script src="deck.js"></script>
 </body>
