@@ -275,6 +275,7 @@ body {
 </div>
 
 <script>
+const DECK_VERSION = '20261008a';
 const SLIDES = [
   'slides/slide01.html',
   'slides/slide02.html',
@@ -302,7 +303,7 @@ let zIndexCounter = 1;
 // Khởi tạo các iframes cho từng slide
 const frames = SLIDES.map((src, idx) => {
   const iframe = document.createElement('iframe');
-  iframe.src = src;
+  iframe.src = src + '?v=' + DECK_VERSION;   // đổi DECK_VERSION mỗi lần sửa slide để trình duyệt không dùng bản cũ
   iframe.title = `Slide ${idx + 1}`;
   iframe.hidden = true;
   iframe.setAttribute('allow', 'autoplay; fullscreen');
